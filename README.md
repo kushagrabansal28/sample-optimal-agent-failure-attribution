@@ -21,7 +21,8 @@ When a long-horizon agent fails, *which step is responsible?* We treat each cand
 | `report/` | technical report (`technical_report.md` / `.pdf`), `experiments.md`, website screenshots |
 | `presentation/` | 30-slide editable deck with speaker notes, `outline.md` |
 | `research/` | verified related work (`related_work.md/.csv`, `novelty_matrix.csv`) |
-| `report/demo_guide.pdf` | **step-by-step demonstration guide** for a reader new to the project, organised around the seven review items |
+| `report/AFCR_Complete_Handbook.pdf` | **the complete beginner handbook and demonstration manual** (80 pages: theory from zero, worked examples with real numbers, every machine, every website page, all experiments, a 10/25/45-minute demo script, 30 reviewer questions, glossary) |
+| `report/demo_guide.pdf` | shorter **step-by-step demonstration guide** for a reader new to the project, organised around the seven review items |
 | `qa/` | quality audit of the website/API, the fix log and the end-to-end verification scripts |
 | `docs/` | architecture, I/O specification, automata glossary, API reference, guides, troubleshooting |
 | `scripts/` | figure, paper, report, deck, PDF, appendix, screenshot and test-report builders |
@@ -83,6 +84,8 @@ python scripts/take_screenshots.py      # report/screens/*.png (API must be runn
 python scripts/build_pdfs.py            # paper/main.pdf and report/technical_report.pdf (needs Node + Edge)
 python scripts/build_deck.py            # presentation/research_presentation.pptx + outline.md
 node scripts/demo_screens.mjs           # screenshots for the guide -> report/screens/demo
+python scripts/build_handbook.py        # report/AFCR_Complete_Handbook.pdf (needs the screenshots below)
+node scripts/demo_screens2.mjs          # more screenshots for the handbook
 python scripts/build_demo_guide.py      # report/demo_guide.md + demo_guide.pdf: step-by-step demonstration guide
 python scripts/build_related_work_csv.py
 ```
