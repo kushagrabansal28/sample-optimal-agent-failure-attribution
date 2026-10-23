@@ -1,0 +1,12 @@
+{
+  "_comment": "First-above-theta target on repair arms (AgenTracer's earliest sufficient repair).",
+  "kind": "automaton",
+  "eps_plan": 0.6,
+  "intervention": "repair",
+  "target": "first_above",
+  "theta": 0.6,
+  "method": "lucb",
+  "delta": 0.1,
+  "budget": 60000,
+  "seed": 61000
+}

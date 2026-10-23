@@ -1,0 +1,101 @@
+{
+ "group": "delta_sweep",
+ "n_trials_rows": 300,
+ "summary": [
+  {
+   "delta": 0.01,
+   "n": 60,
+   "accuracy": 1.0,
+   "acc_ci_lo": 0.93982814785791,
+   "acc_ci_hi": 0.9999999999999998,
+   "abstain_rate": 0.0,
+   "certified_rate": 1.0,
+   "identified_error_rate": 0.0,
+   "err_ci_lo": 0.0,
+   "err_ci_hi": 0.06017185214208986,
+   "mean_rollouts": 3221.0666666666666,
+   "median_rollouts": 3216.0,
+   "p90_rollouts": 4098.4,
+   "rollouts_ci": [
+    3037.69,
+    3396.014166666667
+   ]
+  },
+  {
+   "delta": 0.05,
+   "n": 60,
+   "accuracy": 1.0,
+   "acc_ci_lo": 0.93982814785791,
+   "acc_ci_hi": 0.9999999999999998,
+   "abstain_rate": 0.0,
+   "certified_rate": 1.0,
+   "identified_error_rate": 0.0,
+   "err_ci_lo": 0.0,
+   "err_ci_hi": 0.06017185214208986,
+   "mean_rollouts": 2935.3333333333335,
+   "median_rollouts": 2918.0,
+   "p90_rollouts": 3861.4,
+   "rollouts_ci": [
+    2742.708333333333,
+    3114.0175
+   ]
+  },
+  {
+   "delta": 0.1,
+   "n": 60,
+   "accuracy": 1.0,
+   "acc_ci_lo": 0.93982814785791,
+   "acc_ci_hi": 0.9999999999999998,
+   "abstain_rate": 0.0,
+   "certified_rate": 1.0,
+   "identified_error_rate": 0.0,
+   "err_ci_lo": 0.0,
+   "err_ci_hi": 0.06017185214208986,
+   "mean_rollouts": 2783.9666666666667,
+   "median_rollouts": 2773.0,
+   "p90_rollouts": 3645.8,
+   "rollouts_ci": [
+    2615.749166666667,
+    2954.8358333333335
+   ]
+  },
+  {
+   "delta": 0.2,
+   "n": 60,
+   "accuracy": 1.0,
+   "acc_ci_lo": 0.93982814785791,
+   "acc_ci_hi": 0.9999999999999998,
+   "abstain_rate": 0.0,
+   "certified_rate": 1.0,
+   "identified_error_rate": 0.0,
+   "err_ci_lo": 0.0,
+   "err_ci_hi": 0.06017185214208986,
+   "mean_rollouts": 2687.766666666667,
+   "median_rollouts": 2673.0,
+   "p90_rollouts": 3523.0,
+   "rollouts_ci": [
+    2515.914166666667,
+    2848.295
+   ]
+  },
+  {
+   "delta": 0.4,
+   "n": 60,
+   "accuracy": 1.0,
+   "acc_ci_lo": 0.93982814785791,
+   "acc_ci_hi": 0.9999999999999998,
+   "abstain_rate": 0.0,
+   "certified_rate": 1.0,
+   "identified_error_rate": 0.0,
+   "err_ci_lo": 0.0,
+   "err_ci_hi": 0.06017185214208986,
+   "mean_rollouts": 2531.133333333333,
+   "median_rollouts": 2497.0,
+   "p90_rollouts": 3418.0,
+   "rollouts_ci": [
+    2352.315,
+    2700.153333333333
+   ]
+  }
+ ]
+}

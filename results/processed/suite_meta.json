@@ -1,0 +1,55 @@
+{
+ "trials": 30,
+ "groups": {
+  "main": {
+   "rows": 990,
+   "wall_seconds": 164.4
+  },
+  "gap_sweep": {
+   "rows": 450,
+   "wall_seconds": 108.8
+  },
+  "K_sweep": {
+   "rows": 450,
+   "wall_seconds": 193.9
+  },
+  "delta_sweep": {
+   "rows": 300,
+   "wall_seconds": 9.9
+  },
+  "stress": {
+   "rows": 900,
+   "wall_seconds": 224.7
+  },
+  "size_sweep": {
+   "rows": 270,
+   "wall_seconds": 150.7
+  },
+  "eps_sweep": {
+   "rows": 360,
+   "wall_seconds": 152.3
+  },
+  "noise_sweep": {
+   "rows": 120,
+   "wall_seconds": 55.6
+  },
+  "ablation": {
+   "rows": 450,
+   "wall_seconds": 200.0
+  },
+  "budget_curve": {
+   "rows": 1920,
+   "wall_seconds": 133.6
+  },
+  "toolagent": {
+   "rows": 158,
+   "wall_seconds": 60.4
+  },
+  "targets": {
+   "rows": 150,
+   "wall_seconds": 77.6
+  }
+ },
+ "note": "SYNTHETIC only (bandit-arm, automaton, tool-agent). NOT ALFWorld/HotpotQA.",
+ "delta_default": 0.1
+}

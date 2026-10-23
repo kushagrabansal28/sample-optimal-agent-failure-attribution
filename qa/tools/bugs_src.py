@@ -1,0 +1,492 @@
+"""Single source for qa/bugs.json and BUG_REPORT.md (audit tooling, not project code)."""
+import json
+import sys
+from pathlib import Path
+
+OUT = Path(sys.argv[1])
+E = "qa/evidence/"
+
+B = []
+
+
+def bug(**k):
+    k.setdefault("status", "open")
+    k.setdefault("dependencies", [])
+    B.append(k)
+
+
+# ------------------------------------------------------------------------------------------------ P1
+bug(id="AUTO-001", severity="P1", category="visualization", route="/lab (also /theory, /related, /reproducibility, / KPIs)",
+    component="graph/GraphCanvas.tsx (fit, ResizeObserver, d3-zoom extent); ui/kit.tsx (Reveal, CountUp)",
+    title="Lab graph and scroll-revealed sections render blank when the page is mounted in a zero-size or non-painting viewport (e.g. the hidden embedded browser pane)",
+    preconditions="API running on :8000. Page loaded while its viewport has no size or does not paint (embedded browser pane hidden/minimised; background tab; a collapsed iframe).",
+    steps=["Open http://localhost:8000/lab in the embedded browser pane while the pane is hidden (or emulate a 1x1 viewport over CDP).",
+           "Inspect `.graph-svg > g` and the page sections.",
+           "Navigate to /theory and inspect the opacity of the <Reveal> sections below the first two.",
+           "On /, read the four KPI values."],
+    expected="The 48 states are drawn at a readable scale as soon as the graph is visible; content does not depend on animation frames or scroll position to become visible; KPIs show their real values.",
+    actual="In the hidden pane: innerWidth=innerHeight=0, requestAnimationFrame fires 0 times/s, the graph group transform is `translate(0,310) scale(0)` (all 48 nodes and 89 edges exist in the DOM but are drawn at zero size), KPIs read `0 | 0 | 0 | 0`. A wheel event while collapsed produces `translate(Infinity,Infinity) scale(0.2)`. On /theory, 5 of 7 <Reveal> sections stay at opacity 0 until scrolled into view. The homepage hero graph is unaffected because it is a viewBox-scaled SVG with no measured fit — which matches the report that the automaton 'shows on the homepage but not in other sections'.",
+    evidence=["embedded pane probe: {innerWidth:0, rafFramesIn1s:0, gTransform:'translate(0,310) scale(0)', nodes:48, edges:89}",
+              E + "03_hypotheses.json (A_mount_1px, B_after_wheel_collapsed, C_theory_reveal)", E + "hyp_C_theory_fullpage_noscroll.png",
+              "In a visible 1440x900 headless Edge the same page renders correctly (" + E + "02_lab.json) and recovers after a resize (A_after_resize)."],
+    root_cause="Established for the mechanism, highly likely for the user's report: GraphCanvas computes the fit from the container's clientWidth (0 → k=0) and d3-zoom's extent [[0,0],[w,h]] with w=0 (→ Infinity); Reveal/CountUp/page transitions need IntersectionObserver + requestAnimationFrame to reach their final state. The homepage graph uses a fixed viewBox instead.",
+    root_cause_status="highly likely",
+    source_locations=["website/src/graph/GraphCanvas.tsx:118-124 (fit with w=0)", "website/src/graph/GraphCanvas.tsx:139-149 (ResizeObserver; initial setSize with clientWidth 0)",
+                      "website/src/graph/GraphCanvas.tsx:154 (zoom extent uses sizeRef w)", "website/src/graph/GraphCanvas.tsx:166-167 (fitSig effect fits at w=0)",
+                      "website/src/ui/kit.tsx:265-267 (Reveal initial opacity 0)", "website/src/ui/kit.tsx:234-251 (CountUp)"],
+    recommended_fix="Never fit when w<=0 or h<=0 (skip and retry on the next ResizeObserver tick); clamp k to the zoom scaleExtent; guard the zoom extent against zero size; render the SVG with a viewBox fallback so it is visible before measurement. Make Reveal render visible content by default (animate only an enhancement; no opacity:0 initial state when IntersectionObserver is unavailable or when printing). Render scientific KPI values as final numbers (see DATA-001).",
+    regression_tests=["vitest: GraphCanvas mounted with clientWidth 0 never produces scale(0)/NaN/Infinity and fits once a width appears.",
+                      "vitest: Reveal children are visible (opacity 1) when IntersectionObserver is undefined.",
+                      "CDP/Playwright: load /lab at 1x1, resize to 1440x900, assert ≥48 visible nodes; wheel at 1x1 then resize, assert finite transform."],
+    confidence="highly likely")
+
+bug(id="SEC-001", severity="P1", category="backend", route="GET /{full_path:path} (SPA fallback)", component="src/afcr/api/app.py spa()",
+    title="Path traversal: the SPA catch-all serves any file outside website/dist",
+    preconditions="Built website (website/dist exists); server running.",
+    steps=["curl --path-as-is http://localhost:8000/../../pyproject.toml", "Repeat with /..%2F..%2Fpyproject.toml, /%2e%2e/%2e%2e/pyproject.toml, /..%5C..%5Cpyproject.toml"],
+    expected="404 (or index.html) for every path that resolves outside website/dist.",
+    actual="HTTP 200, application/octet-stream, 926 B: the project's pyproject.toml. Any readable file on the machine reachable by relative path can be served (the auditor read only pyproject.toml).",
+    evidence=["/..%2F..%2Fpyproject.toml -> 200 application/octet-stream 926B, body starts '[build-system]' (all four encodings)"],
+    root_cause="`f = DIST / full_path; if f.is_file(): return FileResponse(f)` with no check that f.resolve() is inside DIST.",
+    root_cause_status="established", source_locations=["src/afcr/api/app.py:513-518"],
+    recommended_fix="Resolve the candidate and require `f.resolve().is_relative_to(DIST.resolve())`; otherwise fall back to index.html (or 404). Do not serve dotfiles. Keep the server bound to 127.0.0.1.",
+    regression_tests=["pytest (TestClient): GET '/../../pyproject.toml', '/..%2F..%2Fpyproject.toml', '/%2e%2e/%2e%2e/pyproject.toml', '/..%5C..%5Cpyproject.toml' never return pyproject content.",
+                      "pytest: GET '/assets/<real file>' and '/lab' still work."],
+    confidence="confirmed")
+
+bug(id="EXPL-001", severity="P1", category="frontend", route="/explorer", component="website/src/pages/Explorer.tsx (body, doReplay, doEstimate)",
+    title="Replay and μ̂ estimate are computed for the current form values, not for the trajectory on screen",
+    preconditions="API running.",
+    steps=["Open /explorer, keep seed 5, press 'Sample failed trajectory' (5 steps: PLAN_START>…>PLAN_SUBGOAL_WRONG).", "Change Seed to 11 but do NOT resample.",
+           "With step 4 selected press 'Run one counterfactual replay' (same for 'Estimate μt', or after changing Intervention / Fault probability)."],
+    expected="The replay uses the parameters of the loaded trajectory (seed 5, its eps_plan and intervention), or the stale form is clearly flagged and the action disabled until resampling.",
+    actual="Request body is {seed: 11, arm: 3, ...}. The 'Original run' column of the replay shows a different 13-step trajectory (PLAN_START>PLAN_DECOMP>…>MEM_CORRUPT) while the chart and step list still show the seed-5 trajectory; the arm index is applied to the wrong trajectory (and can be out of range → 422).",
+    evidence=[E + "04_workflows.json explorer_stale", E + "explorer_stale_seed_replay.png"],
+    root_cause="`const body = { source, seed, eps_plan: eps, intervention: interv, deterministic: det }` is rebuilt on every render from the live form state and reused by doReplay/doEstimate.",
+    root_cause_status="established", source_locations=["website/src/pages/Explorer.tsx:70-87"],
+    recommended_fix="Store the request parameters together with the loaded trajectory (e.g. `loaded = {params, traj}`) and use `loaded.params` for replay/estimate. When the form differs from `loaded.params`, show a 'parameters changed — resample' notice and disable replay/estimate (or resample automatically).",
+    regression_tests=["vitest: load seed 5, change seed to 11, click replay → POST /api/replay body has seed 5 (or the button is disabled with a notice).",
+                      "vitest: same for estimate and for intervention / eps changes."],
+    confidence="confirmed")
+
+# ------------------------------------------------------------------------------------------------ P2
+bug(id="DATA-001", severity="P2", category="research integrity", route="/", component="website/src/ui/kit.tsx CountUp/Stat; pages/Overview.tsx KPIs",
+    title="Homepage metrics are animated count-ups: screenshots and throttled windows show wrong values (the reported 47 / 144 of 146 / 6413)",
+    preconditions="Any.",
+    steps=["Load / and sample `.kpis .stat .v` every 60 ms for 0.8 s.", "Load / in a hidden pane / background tab."],
+    expected="Scientific metrics show their exact values (48 · 146 of 146 · 6518 · 0) at all times.",
+    actual="Timeline at 540 ms: '47 | 143 | 6401 | 0'; final at 720 ms: '48 | 146 | 6518 | 0'. The supplied screenshot's 47 / 144 / 6413 are all ≈98.4 % of the true values (47/48, 144/146, 6413/6518), i.e. one frame of the ease-out animation. In a non-painting pane the values stay at 0. Data sources are correct: API returns count_logical_states=48 (48 unique ids/labels, all reachable), tests 123/123 + 23/23, 6518 rows = sum of the 12 raw CSVs.",
+    evidence=[E + "01_routes.json kpiTimeline", "GET /api/automata/graph?model=agent48 → n_states 48, count_logical_states 48", "GET /api/tests → 123/123, frontend 23/23",
+              "raw CSV row total 6518 == suite_meta sum 6518", "reduced-motion run: '48 | 146 | 6518 | 0' immediately (" + E + "03_hypotheses.json E_*)"],
+    root_cause="Stat renders values through CountUp (0→value over 900 ms via requestAnimationFrame). No state is missing: the 47 is a transient animation frame, not a model defect.",
+    root_cause_status="established", source_locations=["website/src/ui/kit.tsx:234-261", "website/src/pages/Overview.tsx:176-179"],
+    recommended_fix="Render research metrics as static final values (keep animation, if any, purely decorative and never changing the digits), or snap to the final value on mount and when the document is hidden. Add the test-report timestamp to the tests KPI ('last run 2026-10-24 03:09') because it is read from a stored report, not run live.",
+    regression_tests=["vitest: Overview KPI text equals the API values on first render after data arrives (no intermediate numbers).", "CDP: screenshot at 300 ms shows 48 / 146 / 6518."],
+    confidence="confirmed")
+
+bug(id="API-001", severity="P2", category="backend", route="POST /api/replay, POST /api/replay/estimate", component="src/afcr/api/app.py ReplayReq/EstReq, replay(), replay_estimate()",
+    title="Replay endpoints return HTTP 500 for out-of-range input instead of 422",
+    preconditions="Server running.",
+    steps=["POST /api/replay {\"seed\":-1,\"arm\":0}", "POST /api/replay {\"seed\":0,\"arm\":0,\"n_states\":500}  (also n_states 10, eps_plan 1.5)", "POST /api/replay/estimate {\"seed\":-3,\"arm\":0,\"n\":10}"],
+    expected="422 with a readable field message (as /api/trajectory does for the same values).",
+    actual="500 Internal Server Error (text/plain). Traceback in results/processed/api_err.txt: pydantic ValidationError for AttribReq.seed.",
+    evidence=["5 probes → 500; /api/trajectory {seed:-1} → 422 'Input should be greater than or equal to 0'"],
+    root_cause="ReplayReq has unconstrained seed/n_states/eps_plan; the handler builds AttribReq(...) inside the request, whose ValidationError is not converted to an HTTP error.",
+    root_cause_status="established", source_locations=["src/afcr/api/app.py:314-341", "src/afcr/api/app.py:379-394"],
+    recommended_fix="Give ReplayReq the same Field constraints as TrajReq/AttribReq (seed ge=0, n_states 48..96, eps_plan [0,1)); additionally catch pydantic.ValidationError/ValueError around build_env and return 422.",
+    regression_tests=["pytest: each of the 5 bodies above returns 422 with a field name in detail.", "pytest: no endpoint returns 500 for a sweep of invalid bodies (property test over fields)."],
+    confidence="confirmed")
+
+bug(id="API-002", severity="P2", category="API integration", route="GET /api/<anything unknown>", component="src/afcr/api/app.py spa(); website/src/lib/api.ts request()",
+    title="Unknown /api/* paths return 200 index.html, and the client accepts HTML as data",
+    preconditions="Built website.",
+    steps=["curl -i http://localhost:8000/api/models (also /api/nope, /api/results/groups, /api/figures)"],
+    expected="404 JSON {detail: 'Not Found'} for any /api/* route that does not exist; the client rejects non-JSON for JSON endpoints.",
+    actual="200 text/html (the SPA shell). `request()` returns the HTML string typed as T, so a typo in an endpoint fails later with confusing errors. (The previous session's 'all API endpoints return 200' check used these paths and was therefore a false positive.)",
+    evidence=["/api/models -> 200 text/html; charset=utf-8, body '<!doctype html>'"],
+    root_cause="The catch-all route `/{full_path:path}` also matches /api/... and /files/...; request() falls back to res.text() for non-JSON.",
+    root_cause_status="established", source_locations=["src/afcr/api/app.py:513-518", "website/src/lib/api.ts:28-29"],
+    recommended_fix="In spa(): if full_path starts with 'api/' or 'files/' raise HTTPException(404). In request(): for JSON endpoints throw ApiError when content-type is not JSON.",
+    regression_tests=["pytest: GET /api/does-not-exist → 404 JSON.", "vitest: request() with an HTML 200 response rejects with ApiError."],
+    dependencies=["SEC-001"], confidence="confirmed")
+
+bug(id="AUTO-002", severity="P2", category="automata semantics", route="/lab?model=pa", component="src/afcr/api/app.py trace() (pa); website/src/pages/Lab.tsx result badges",
+    title="Probabilistic automaton shows 'accepted'/'rejected' from one sampled run",
+    preconditions="API running.",
+    steps=["Open /lab?model=pa, word 'go', press Run trace."],
+    expected="Acceptance is reported as a probability (exact P(accept), Monte-Carlo estimate); the sampled path is labelled 'one sampled run ended in t (accepting)', not 'accepted'.",
+    actual="Badges: 'accepted' + 'exact P(accept) = 0.7000' + 'Monte-Carlo 0.705 [0.685, 0.725]'. Re-running can flip the badge to 'rejected' for the same word.",
+    evidence=[E + "02_lab.json pa.afterReject", E + "lab_pa_reject.png"],
+    root_cause="trace() returns sample_run(...).to_json() whose `accepted` field is the sampled path's outcome; Lab renders any `accepted` field as an acceptance verdict.",
+    root_cause_status="established", source_locations=["src/afcr/api/app.py:218-222", "website/src/pages/Lab.tsx:298"],
+    recommended_fix="Rename the field for PA to `sample_ended_accepting` (keep exact/MC probabilities as the verdict) and render a model-specific result panel.",
+    regression_tests=["pytest: PA trace JSON has exact_acceptance_probability and no `accepted` verdict key.", "vitest: PA result shows probability badges and no 'accepted' badge."],
+    confidence="confirmed")
+
+bug(id="AUTO-003", severity="P2", category="automata semantics", route="/lab?model=mealy, /lab?model=moore", component="src/afcr/api/app.py trace(); automata/transducers.py; Lab.tsx",
+    title="Mealy and Moore transducers are reported as 'accepted'",
+    preconditions="API running.",
+    steps=["Open /lab?model=mealy (or moore), press Run trace; try 'ok ok' on Moore."],
+    expected="No acceptance notion for transducers: show the output word only.",
+    actual="Badge 'accepted' next to the note 'transducer: no acceptance, see outputs'; Moore 'ok ok' also 'accepted'. Backend JSON has accepted: true.",
+    evidence=[E + "02_lab.json mealy/moore", E + "lab_moore_trace_end.png"],
+    root_cause="The transducer trace object serialises a generic `accepted=True`; the UI shows it.",
+    root_cause_status="established", source_locations=["src/afcr/api/app.py:216-217", "src/afcr/automata/transducers.py", "website/src/pages/Lab.tsx:298"],
+    recommended_fix="Omit `accepted` for transducers (or set null) and render the output tape/word as the result.",
+    regression_tests=["pytest: mealy/moore trace JSON has outputs and accepted is None/absent.", "vitest: no accepted/rejected badge for mealy/moore."],
+    confidence="confirmed")
+
+bug(id="AUTO-004", severity="P2", category="automata semantics", route="/lab?model=pda, /lab?model=pda_typed", component="src/afcr/automata/pda.py run(); Lab.tsx",
+    title="PDA rejections return an empty trace, so the user cannot see where the run failed",
+    preconditions="API running.",
+    steps=["Open /lab?model=pda, enter 'call ret ret' (or 'call'), press Run trace.", "Open pda_typed, enter 'open_search end_calc'."],
+    expected="Steps up to the failing configuration (stack underflow / type mismatch / non-empty stack at end) with the stack shown, plus the reason for rejection.",
+    actual="Response {accepted:false, steps:[]}. UI shows only a 'rejected' badge, playback controls disappear and the hint 'Press Run trace to execute the model…' reappears as if nothing ran.",
+    evidence=["POST /api/automata/trace {model:'pda', word:['call','ret','ret']} → nsteps 0", E + "02_lab.json pda.afterReject", E + "lab_pda_reject.png"],
+    root_cause="Suspected: PDA run returns the accepting path only (search over configurations) and an empty list when no path accepts.",
+    root_cause_status="suspected", source_locations=["src/afcr/automata/pda.py", "src/afcr/api/app.py:232", "website/src/pages/Lab.tsx:271-313"],
+    recommended_fix="Return the longest explored configuration sequence (or the deterministic prefix) with a `reject_reason` (no transition / stack mismatch / stack not empty); show it in the stack panel. Show a 'run finished: rejected' state instead of the initial hint.",
+    regression_tests=["pytest: pda trace for ['call','ret','ret'] has ≥2 steps and reject_reason.", "vitest: rejected PDA run keeps playback and shows the reason."],
+    confidence="confirmed")
+
+bug(id="AUTO-005", severity="P2", category="automata semantics", route="/lab (48-state, DFA view)", component="src/afcr/api/app.py _agent_view(view='dfa'); Lab.tsx callout",
+    title="The 48-state 'DFA' view is not total and hides the sink it claims to add",
+    preconditions="API running.",
+    steps=["Open /lab, Formalism view = DFA.", "Compare with m.to_dfa(): 49 states (incl. ⊥sink), 2009 transitions over 41 symbols."],
+    expected="A DFA view consistent with the definition shown (δ total): either draw the sink (collapsed, e.g. 'all other symbols → ⊥') or label the view 'partial deterministic skeleton (sink omitted)'.",
+    actual="Graph shows 48 nodes and 48 edges (one per (state, action)); the callout says 'The DFA view adds an explicit sink that is not counted' but no sink is drawn; the definition says δ is total.",
+    evidence=["to_dfa(): states 49, delta 2009, alphabet 41, total=True; API dfa view: nodes 48, edges 48", E + "lab_agent48_view_DFA.png"],
+    root_cause="_agent_view filters `if q in m.specs and r in m.specs`, dropping every transition into ⊥sink.",
+    root_cause_status="established", source_locations=["src/afcr/api/app.py:126-130", "website/src/pages/Lab.tsx:180"],
+    recommended_fix="Return the sink node (flag `sink: true`, excluded from the logical count) and one aggregated edge per state 'Σ∖{a} → ⊥'; update the callout to match.",
+    regression_tests=["pytest: dfa view has a sink node and every non-sink state has an explicit default edge; count_logical_states stays 48.", "vitest: DFA view legend/callout mention the drawn sink."],
+    confidence="confirmed")
+
+bug(id="AUTO-006", severity="P2", category="automata semantics", route="/lab (all models)", component="src/afcr/api/app.py small_models(); automata/benchmark48.py ids; Lab.tsx",
+    title="Requirement: states must use q0, q1, … naming and every model must demonstrate all relevant cases",
+    preconditions="User requirement (stated in this audit request).",
+    steps=["Open each model in /lab and read the state ids."],
+    expected="Every model uses q-indexed state ids (q0, q1, …; 48-state model q0…q47) with the descriptive name as a secondary label, and each model shows its full set of cases (accept, reject, dead/trap state, empty word, invalid symbol; NFA active sets; ε-closure; PDA push/pop/reject; TM accept/reject/step-limit).",
+    actual="Only NFA and ε-NFA use q0…; DFA uses even/odd, PA s/t/f, LTS idle/thinking…, Mealy idle/calling/retrying, Moore product names 'idle/start', PDA q/acc, TM scan/carry/done/acc/rej, TM_pal has_a/go_a…, 48-state model PLAN_START…FAIL_TOOL. Toy models are minimal (DFA 2 states without a dead state; PA single-letter alphabet; PDA 2 states; no NFA→DFA subset-construction view although the backend implements and tests it; no TM step-limit demo).",
+    evidence=[E + "02_lab.json initial ids per model", "GET /api/automata/graph?model=<m> payloads (audit log)"],
+    root_cause="Design choice; not a defect in execution.", root_cause_status="established",
+    source_locations=["src/afcr/api/app.py:53-65", "src/afcr/automata/benchmark48.py (state ids)", "src/afcr/automata/*.py (example machines)", "website/src/pages/Lab.tsx"],
+    recommended_fix="Add a stable `qid` (q0…) to every node in the API (keep `id` semantic for back-compat or switch id→qid and move names to `label`), display 'q3 · Select subgoal' in nodes and tables; extend examples: DFA with a dead state (e.g. 3–4 states), NFA→DFA subset construction view, ε-NFA→NFA conversion, PA with ≥2 symbols and a rejecting sink, PDA with an explicit reject path, TM with a step-limit 'unknown' example. Keep the 48 logical-state count unchanged (do not add states to reach a number).",
+    regression_tests=["pytest: every graph payload node has qid matching ^q\\d+$, unique per model; agent48 qids are q0..q47.", "pytest: example machines cover accept/reject/empty/invalid cases.", "vitest: node labels render 'qN · name'."],
+    confidence="confirmed")
+
+bug(id="DASH-001", severity="P2", category="statistics", route="/dashboard", component="website/src/pages/Dashboard.tsx stats, correct, Stopping-rule card",
+    title="For threshold targets the stopping-rule panel and the correctness badge use the argmax rule",
+    preconditions="API running.",
+    steps=["Open /dashboard, Target = 'Latest step ≥ θ (CAR locus)', θ = 0.5, Run attribution."],
+    expected="Panel shows the threshold rule state (which steps are certified above/below θ) and correctness against the threshold target's true answer.",
+    actual="Outcome 'culprit certified' with badge 'matches exact argmax', while the stopping card says 'best t=1: lo = 0.005 · strongest challenger t=2: hi = 1.000 · separation margin −0.995 · negative margin: intervals still overlap' — contradicting the certified outcome.",
+    evidence=[E + "04_workflows.json dash_last_above", E + "dashboard_last_above.png"],
+    root_cause="`stats` (h, ℓ, margin) and `correct` are computed with argmax-ε logic regardless of res.target.name.",
+    root_cause_status="established", source_locations=["website/src/pages/Dashboard.tsx:79-87", "website/src/pages/Dashboard.tsx:102-103", "website/src/pages/Dashboard.tsx:170-181"],
+    recommended_fix="Branch on res.target.name: for first/last_above compute per-arm status (lo ≥ θ certified above, hi < θ certified below, undecided) and compare the answer with the true first/last index ≥ θ from ground_truth; hide the argmax margin.",
+    regression_tests=["vitest: last_above result renders threshold status and no 'separation margin'; badge compares with the threshold truth."],
+    confidence="confirmed")
+
+bug(id="FORM-001", severity="P2", category="frontend", route="/dashboard, /explorer, /studio", component="website/src/ui/kit.tsx NumberField; pages using it",
+    title="Invalid numeric input is flagged but the run silently uses the previous valid value",
+    preconditions="API running.",
+    steps=["Open /dashboard, set Confidence δ to 0 (field shows 'Must be > 0').", "Press Run attribution."],
+    expected="Run is disabled (or blocked with a message) while any field is invalid.",
+    actual="Run button enabled; request is sent with delta: 0.1 (the last valid value). Same pattern for budget, seed, trials, n.",
+    evidence=[E + "04_workflows.json dash_invalid_delta_ui {fieldError:'Must be > 0', runDisabled:false}, dash_invalid_delta_sent 0.1"],
+    root_cause="NumberField only calls onChange for valid values and keeps its error local; parents never learn that a field is invalid.",
+    root_cause_status="established", source_locations=["website/src/ui/kit.tsx:70-90", "website/src/pages/Dashboard.tsx:121,125", "website/src/pages/Explorer.tsx:101,159-160", "website/src/pages/Studio.tsx:149-153,158"],
+    recommended_fix="Expose validity (onValidityChange or a form-level error map) and disable submit buttons while invalid; show a summary next to the button.",
+    regression_tests=["vitest: δ=0 disables Run attribution and no POST is made.", "vitest: same for Studio trials and Explorer n."],
+    confidence="confirmed")
+
+bug(id="UI-001", severity="P2", category="research integrity", route="/dashboard, /studio, /explorer (all uppercase labels)", component="website/src/styles.css (.field label / .lbl text-transform: uppercase)",
+    title="CSS uppercase turns δ into Δ and ε into Ε in form labels",
+    preconditions="Any.",
+    steps=["Open /dashboard and read the labels 'Confidence δ' and 'Tolerance ε'."],
+    expected="'CONFIDENCE δ', 'TOLERANCE ε' (Greek symbols keep their case).",
+    actual="'CONFIDENCE Δ' and 'TOLERANCE Ε'. Δ is the paper's symbol for the gap Δ_t = μ_t − μ_ref, so the label now names a different quantity; 'Ε' reads as Latin E.",
+    evidence=[E + "resp_1024x768_dashboard.png", "report/screens/dashboard.png"],
+    root_cause="text-transform: uppercase applies Unicode case mapping to Greek letters.", root_cause_status="established",
+    source_locations=["website/src/styles.css (field label / .lbl rules)", "website/src/pages/Dashboard.tsx:120-121", "website/src/pages/Studio.tsx:150"],
+    recommended_fix="Wrap symbols in <span class='sym'> with text-transform:none (or use font-variant small-caps for labels), or drop uppercase for labels containing math.",
+    regression_tests=["vitest/DOM: computed text-transform of .sym is none.", "visual: label renders lowercase δ."],
+    confidence="confirmed")
+
+bug(id="UX-001", severity="P2", category="UX", route="/lab", component="website/src/pages/Lab.tsx layout (PageHeader, model-bar card, lab-grid)",
+    title="The automaton graph starts below the fold (≈650 px of header and model picker first)",
+    preconditions="1440×900 or smaller.",
+    steps=["Open /lab at 1440×900; at 390×844."],
+    expected="The selected model's graph is visible in the first viewport (with the model picker compact).",
+    actual="At 1440×900 only the first row of nodes is visible; at 390×844 the whole first screen is the model picker. Users can reasonably conclude that the lab 'shows nothing'.",
+    evidence=[E + "lab_agent48_view_DFA.png", E + "resp_390x844_lab.png", E + "route_lab_1440.png"],
+    root_cause="Large page header + three-row model picker + views row precede the graph.", root_cause_status="established",
+    source_locations=["website/src/pages/Lab.tsx:156-197", "website/src/styles.css (.model-bar, .page-head)"],
+    recommended_fix="Collapse the model picker into one row (segmented/select with grouped options), shorten the lead, put the view/size controls in the graph card header, and give the graph min-height: calc(100vh - header).",
+    regression_tests=["CDP: at 1440×900 ≥80 % of graph nodes are inside the initial viewport.", "CDP: at 390×844 the graph card top is < 844 px."],
+    dependencies=["AUTO-001"], confidence="confirmed")
+
+bug(id="DASH-002", severity="P2", category="frontend", route="/dashboard", component="website/src/pages/Dashboard.tsx (req, compare, budget displays)",
+    title="Result panels read the live form instead of the run that produced them",
+    preconditions="A run has completed.",
+    steps=["Run attribution with budget 20000 (6089 rollouts → 'budget used 30%').", "Change Rollout budget to 100000 without re-running.",
+           "Change seed and press 'Run uniform on this instance'."],
+    expected="Budget used, budget text and the uniform comparison refer to the completed run's configuration ('identical instance and seed').",
+    actual="'Budget used' changes to 6% and the Rollouts card says 'budget 100,000' for a 20,000-budget run; compare() calls api.attribute(req(...)) with the current form, so after a seed change the 'identical instance' comparison runs on a different instance.",
+    evidence=[E + "04_workflows.json dash_budget_used_before_after_edit {before:'30%', after:'6%'}", "code: Dashboard.tsx:49-52, 62-65, 140, 178"],
+    root_cause="Displays and compare() use component state (budget, seed, …) rather than parameters stored with `res`.", root_cause_status="established",
+    source_locations=["website/src/pages/Dashboard.tsx:49-66", "website/src/pages/Dashboard.tsx:140", "website/src/pages/Dashboard.tsx:178", "website/src/pages/Dashboard.tsx:182-191"],
+    recommended_fix="Store the request with the result (`run = {req, res}`), compute displays from run.req and build the uniform comparison from run.req; mark results 'stale' when the form changes.",
+    regression_tests=["vitest: changing budget after a run does not change 'budget used'.", "vitest: compare after a seed change posts the original seed."],
+    confidence="confirmed")
+
+# ------------------------------------------------------------------------------------------------ P3
+bug(id="AUTO-007", severity="P3", category="API integration", route="/lab?model=tm, /lab?model=tm_pal", component="src/afcr/api/app.py trace() TM branch; automata/turing.py to_json; Lab.tsx runTrace",
+    title="TM trace returns `steps` as a number; UI toasts 'Trace computed (undefined steps)'",
+    preconditions="API running.", steps=["Open /lab?model=tm, press Run trace."],
+    expected="Consistent schema (steps: array, or n_steps: int) and toast 'Trace computed (9 steps)'.",
+    actual="Response {steps: 9 (int), trace: [...]} while TraceResponse types steps as an array; toast reads 'Trace computed (undefined steps)'. Playback works only because `trace.steps?.length` is undefined and falls back to trace.trace.length − 1.",
+    evidence=[E + "02_lab.json tm.afterRun / tm_pal.afterRun", "POST /api/automata/trace {model:'tm'} → steps: int"],
+    root_cause="Schema mismatch between turing.Trace.to_json() and website/src/lib/api.ts TraceResponse.", root_cause_status="established",
+    source_locations=["src/afcr/api/app.py:214-215", "src/afcr/automata/turing.py (to_json)", "website/src/lib/api.ts:54-58", "website/src/pages/Lab.tsx:123,131"],
+    recommended_fix="Rename the TM field to n_steps (or return configurations under steps); add a response model per trace kind; compute the toast count per model.",
+    regression_tests=["pytest: TM trace JSON validates against a TraceResponse schema.", "vitest: TM run toast shows a number."], confidence="confirmed")
+
+bug(id="AUTO-008", severity="P3", category="visualization", route="/lab?model=nfa|enfa", component="website/src/pages/Lab.tsx trailFromTrace, trailIndex/countUpTo; GraphCanvas current marker",
+    title="NFA/ε-NFA playback marks a single 'current' state, omits the initial ε-closure and maps steps to edges proportionally",
+    preconditions="API running.", steps=["Open /lab?model=enfa, Run trace 'a b', step through; observe step 0 and the cyan 'current' ring."],
+    expected="At step 0 the active set is ε-closure(q0) = {q0,q1,q2}; each step highlights exactly the edges taken in that step; there is no single 'current' state for set-based runs.",
+    actual="Step 0 shows no active set; a cyan pulse marks one state (the last edge's target) as 'current'; edges revealed per step are approximated by ceil(trail.length·idx/steps), which is only correct when every step contributes the same number of edges.",
+    evidence=[E + "02_lab.json enfa.playback / nfa.playback", "code: Lab.tsx:132,133,348-352"],
+    root_cause="Trail indexing is not per step; GraphCanvas derives `current` from the last revealed edge.", root_cause_status="established",
+    source_locations=["website/src/pages/Lab.tsx:38-60", "website/src/pages/Lab.tsx:131-133", "website/src/pages/Lab.tsx:348-352", "website/src/graph/GraphCanvas.tsx:185"],
+    recommended_fix="Build trail as an array of per-step edge groups; reveal groups[0..idx); pass activeSet (including the initial closure at idx 0) and suppress the single current marker for set semantics.",
+    regression_tests=["vitest: ε-NFA idx 0 active set equals closure_steps' last set.", "vitest: unequal per-step edge counts highlight exactly the edges of steps ≤ idx."], confidence="confirmed")
+
+bug(id="AUTO-009", severity="P3", category="automata semantics", route="/lab?model=lts", component="Lab.tsx trace panel",
+    title="LTS deadlock / blocked step is not shown",
+    preconditions="API running.", steps=["Open /lab?model=lts, word 'plan answer plan', Run trace."],
+    expected="The third step is shown as blocked at 'done' (no 'plan' transition) — a deadlock for that label.",
+    actual="Only 'rejected'; the step with blocked:true and next_state:null is silently skipped in playback.",
+    evidence=["POST trace lts → steps[2] = {state:'done', symbol:'plan', next_state:null, blocked:true}"],
+    root_cause="trailFromTrace ignores steps whose next_state is not a string; the UI never reads `blocked`.", root_cause_status="established",
+    source_locations=["website/src/pages/Lab.tsx:54-57", "website/src/pages/Lab.tsx:295-310"],
+    recommended_fix="Render a 'blocked at <state> on <label>' badge and highlight the state; list LTS deadlocks from the graph payload (already returned as `deadlocks`).",
+    regression_tests=["vitest: blocked LTS step renders a blocked badge."], confidence="confirmed")
+
+bug(id="VIS-001", severity="P3", category="visualization", route="/lab (moore, tm_pal, agent48 64/96, mobile)", component="website/src/graph/GraphCanvas.tsx buildGeometry/labels; graph/layout.ts",
+    title="Graph readability: overlapping edge labels, clipped self-loops, edge labels over node labels, tiny scale for 96 states / mobile",
+    preconditions="API running.", steps=["Open /lab?model=moore and Run trace; open tm_pal; open the 48-state model; select 96 states; open /lab at 390×844."],
+    expected="No overlapping labels; self-loops inside the viewport; readable labels.",
+    actual="Moore: 11 overlapping edge-label pairs (28 parallel/self edges), self-loop at the top clipped; tm_pal: 2 overlapping pairs; agent graph: edge label 'tool_invalid 0.10' over the node label 'Select tool'; 96 states fit at scale 0.45; at 390 px the 48 nodes are drawn in 318 px.",
+    evidence=[E + "02_lab.json overlappingLabelPairs", E + "lab_moore_trace_end.png", E + "lab_agent48_96states.png", E + "resp_390x844_lab.png"],
+    root_cause="Layered layout with fixed spacing; parallel edges between the same pair get separate labels; no label collision handling; bbox ignores self-loop height.", root_cause_status="established",
+    source_locations=["website/src/graph/GraphCanvas.tsx:45-75,229-235", "website/src/graph/layout.ts:18-38,44-47"],
+    recommended_fix="Merge parallel edges into one edge with a combined label ('task, ok / noop'); include self-loop extents in bbox; offset labels away from nodes / add a label background; for agent48 show labels on hover only and offer a 'columns compact' layout; on mobile default to a list/table view with the graph behind a toggle.",
+    regression_tests=["unit (layout): no two label boxes overlap for the bundled models.", "CDP: overlappingLabelPairs == 0 for every model."], confidence="confirmed")
+
+bug(id="DASH-003", severity="P3", category="frontend", route="/dashboard", component="Dashboard.tsx history caption",
+    title="Caption says 'LUCB would pull next' for every algorithm",
+    preconditions="API running.", steps=["Choose 'Uniform (same stopping rule)' and Run attribution; read the caption under the forest plot."],
+    expected="'<algorithm> would pull next' (or hide for non-LUCB).", actual="'… · LUCB would pull next [\"step 8\",\"step 1\"]' for uniform_fc.",
+    evidence=[E + "04_workflows.json dash_uniform_label"], root_cause="Hard-coded string.", root_cause_status="established",
+    source_locations=["website/src/pages/Dashboard.tsx:166"], recommended_fix="Use label(res.strategy) and only show `suggested` when the backend's strategy produced it.",
+    regression_tests=["vitest: uniform run caption names Uniform."], confidence="confirmed")
+
+bug(id="DASH-004", severity="P3", category="frontend", route="/dashboard", component="Dashboard.tsx; api.ts attribute()",
+    title="No result export and no way to cancel a long attribution run",
+    preconditions="API running.", steps=["Run attribution with budget 300000; look for stop/cancel/export."],
+    expected="Cancel (AbortController) while running; export the result (JSON incl. config, history, intervals; CSV of the ranking).",
+    actual="No stop/cancel/reset or export control on the page (only Experiment studio exports).",
+    evidence=[E + "04_workflows.json dash_export_buttons [], dash_stop_cancel []"], root_cause="Not implemented.", root_cause_status="established",
+    source_locations=["website/src/pages/Dashboard.tsx", "website/src/lib/api.ts:12-33"],
+    recommended_fix="Pass an AbortSignal through request(); add Cancel while busy; add 'Export JSON' / 'Export ranking CSV' buttons using downloadText.",
+    regression_tests=["vitest: Cancel aborts the fetch and restores the idle state.", "vitest: Export JSON contains req + result."], confidence="confirmed")
+
+bug(id="API-003", severity="P3", category="backend", route="POST /api/automata/trace, GET /api/automata/graph, POST /api/experiment/run", component="src/afcr/api/app.py TraceReq, graph(), ExpReq",
+    title="Unbounded n_states on trace/graph and synchronous long experiment runs",
+    preconditions="Server running.", steps=["Inspect TraceReq.n_states and graph(n_states) (no upper bound, lru_cache keeps the model).", "POST /api/experiment/run with trials 60, all 12 algorithms, automaton, budget 100000."],
+    expected="Bounded inputs (48..96 like TrajReq); long experiments run as jobs with progress and cancellation, or are capped.",
+    actual="Any n_states ≥ 48 is accepted and cached (memory growth); experiment runs synchronously in a worker thread with no progress, timeout or cancel.",
+    evidence=["code review (not load-tested to avoid disturbing the running server)"], root_cause="Missing Field bounds; no job model.", root_cause_status="established",
+    source_locations=["src/afcr/api/app.py:105-110", "src/afcr/api/app.py:147-152", "src/afcr/api/app.py:410-441", "src/afcr/api/app.py:38-43"],
+    recommended_fix="Add Field(ge=48, le=96) to TraceReq.n_states and the graph query; cap work (trials×algorithms×budget) or move to a background job with polling.",
+    regression_tests=["pytest: n_states=1000 → 422 on trace and graph.", "pytest: oversized experiment → 422 with an explanation."], confidence="confirmed (code), not load-tested")
+
+bug(id="FE-001", severity="P3", category="frontend", route="/", component="website/src/ui/HeroGraph.tsx motion.circle",
+    title="Homepage logs 32 SVG errors per load: <circle> cx/cy 'undefined'",
+    preconditions="Any.", steps=["Load / with DevTools console open."], expected="No console errors.",
+    actual="16 × 'Error: <circle> attribute cx: Expected length, \"undefined\"' and 16 × cy.",
+    evidence=[E + "01_routes.json allConsole"], root_cause="motion.circle is animated with keyframe arrays for cx/cy but has no initial cx/cy attribute.",
+    root_cause_status="highly likely", source_locations=["website/src/ui/HeroGraph.tsx:37-38"],
+    recommended_fix="Set cx={pts[0].x} cy={pts[0].y} (and initial) on both circles, or animate a transform instead.",
+    regression_tests=["CDP: zero console errors on /."], confidence="confirmed (errors), highly likely (cause)")
+
+bug(id="INT-001", severity="P3", category="research integrity", route="/ vs /theory", component="pages/Overview.tsx hero h1; pages/Theory.tsx §6",
+    title="Homepage headline says 'Sample-optimal' while Theory says the project never calls AFCR sample-optimal",
+    preconditions="Any.", steps=["Read the H1 on / and Theory §6."],
+    expected="The qualifier is part of the headline (e.g. 'Towards sample-optimal…' or a visible 'objective' tag), consistent with Theory.",
+    actual="H1 'Sample-optimal culprit identification for agent failures'; qualifier only in small grey text below the CTAs; Theory: 'We do not claim to match it and therefore never call AFCR “sample-optimal”'.",
+    evidence=[E + "route_home_1440.png", "Theory.tsx:79"], root_cause="Title kept from the project outline.", root_cause_status="established",
+    source_locations=["website/src/pages/Overview.tsx:162,169", "website/src/pages/Theory.tsx:79"],
+    recommended_fix="Keep the official project title but attach an 'objective, not a proven property' tag directly to the H1 (same line/size as eyebrow) and link to Theory §6.",
+    regression_tests=["vitest: hero contains the qualifier within the header element."], confidence="confirmed")
+
+bug(id="DOC-001", severity="P3", category="documentation", route="/reproducibility, /docs", component="pages/Reproducibility.tsx RUN/SPEC; pages/Docs.tsx API reference note",
+    title="Stale and non-runnable instructions on the site",
+    preconditions="Any.", steps=["Open /reproducibility → Commands; copy the spec block into a file and run `python -m afcr.experiments.run_one spec.json`.", "Open /docs → API reference footer."],
+    expected="Commands that exist; a spec that runs; accurate error contract.",
+    actual="Lists `python scripts/build_docs.py` (script removed; current: build_paper.py, build_report.py, build_appendices.py, build_docs_folder.py, take_screenshots.py) and '18 figures' (21 exist); the JSON spec uses // comments, which run_one's json.loads rejects; Docs says invalid input returns 422 although the replay endpoints return 500 (API-001) and unknown routes 200 (API-002). README (repo) is current; the website copy is not.",
+    evidence=[E + "04_workflows.json repro_commands", "scripts/ listing (no build_docs.py)", "configs/*.json use '_comment' keys instead"],
+    root_cause="Hard-coded strings in the page were not updated with the scripts.", root_cause_status="established",
+    source_locations=["website/src/pages/Reproducibility.tsx:18-33", "website/src/pages/Docs.tsx:37"],
+    recommended_fix="Serve the command list from the repository (README section or a JSON written by the build) or update the strings; use the `_comment` key convention from configs/ in the example spec.",
+    regression_tests=["pytest: every `python scripts/X.py` mentioned in website/src exists.", "pytest: the spec example in Reproducibility parses with run_one.load_spec."], confidence="confirmed")
+
+bug(id="DOC-002", severity="P3", category="documentation", route="/docs", component="pages/Docs.tsx ApiReference range column",
+    title="API reference drops bounds of 0 (operator precedence) and nullable types",
+    preconditions="Any.", steps=["Open /docs → API reference → POST /api/attribute."],
+    expected="seed '≥ 0', eps_plan '≥ 0, < 1', eps '≥ 0, ≤ 0.5', reconstruct_noise '≥ 0, ≤ 1'.",
+    actual="seed '—', eps_plan '< 1', eps '≤ 0.5', reconstruct_noise '≤ 1'; nullable fields (anyOf) show type '—'.",
+    evidence=[E + "04_workflows.json docs_attribute_ranges"], root_cause="`v.minimum ?? v.exclusiveMinimum != null ? … : ''` parses as `(v.minimum ?? (v.exclusiveMinimum != null)) ? …`; a minimum of 0 is falsy.",
+    root_cause_status="established", source_locations=["website/src/pages/Docs.tsx:36"],
+    recommended_fix="Compute lower = v.exclusiveMinimum ?? v.minimum with explicit `!= null` checks; render anyOf types.",
+    regression_tests=["vitest: schema {minimum:0} renders '≥ 0'."], confidence="confirmed")
+
+bug(id="DOC-003", severity="P3", category="documentation", route="/docs", component="pages/Docs.tsx search",
+    title="Documentation search only matches hand-written keyword strings",
+    preconditions="Any.", steps=["Search 'LUCB' (described in the glossary/API sections)."], expected="Sections that mention LUCB.", actual="No results (empty state).",
+    evidence=[E + "04_workflows.json docs_search_LUCB []"], root_cause="Filtering uses `s.text` keyword lists, not the rendered content.", root_cause_status="established",
+    source_locations=["website/src/pages/Docs.tsx:71-83"], recommended_fix="Index the rendered text (ref.innerText) or the glossary/API data used to build the sections.",
+    regression_tests=["vitest: searching 'LUCB' shows the glossary/API sections."], confidence="confirmed")
+
+bug(id="REL-001", severity="P3", category="visualization", route="/related", component="pages/Related.tsx Timeline, filter",
+    title="Related-work timeline clusters 2025–26 papers into clipped, overlapping labels; 'CAR' search finds nothing",
+    preconditions="API running.", steps=["Open /related, look at the right end of the timeline.", "Type 'car' in 'Filter papers'."],
+    expected="All points labelled and readable; CAR (highlighted in the legend as closest) visible; searching the acronym finds the paper; empty filter shows an empty state.",
+    actual="Labels such as 'TraceEleph…' are clipped at the SVG edge and stacked lines overlap; CAR's red point is not distinguishable in the cluster; 'car' returns zero rows (short_name is 'Causal Agent Replay'); the table shows only a header with no empty-state text.",
+    evidence=[E + "related_timeline.png", E + "04_workflows.json related_filter_car []"], root_cause="Linear 2006–2027 axis with 20 points, 14 of them within ~1.5 years; filter matches short_name/venue only.",
+    root_cause_status="established", source_locations=["website/src/pages/Related.tsx:25-51", "website/src/pages/Related.tsx:59"],
+    recommended_fix="Use a broken/zoomed axis (2006–2016 | 2025–2026) or a list for the recent cluster; match the DATES acronym and paper_id in the filter; show an empty row message.",
+    regression_tests=["vitest: filter 'CAR' returns the CAR row.", "CDP: no timeline label extends beyond the SVG."], confidence="confirmed")
+
+bug(id="A11Y-001", severity="P3", category="accessibility", route="all non-home routes; /lab", component="ui/kit.tsx PageHeader; pages/Lab.tsx",
+    title="No <h1> outside the homepage; nested <main> landmark in the lab",
+    preconditions="Any.", steps=["Inspect headings and landmarks on /lab, /dashboard, …"], expected="One h1 per page (the page title); one main landmark.",
+    actual="Page titles are <h2> (h1 count 0); /lab contains <main class='page'> > <main class='stack'> (2 main landmarks).",
+    evidence=[E + "05_responsive_a11y.json a11y"], root_cause="PageHeader renders h2; Lab uses <main> for its column.", root_cause_status="established",
+    source_locations=["website/src/ui/kit.tsx:47", "website/src/pages/Lab.tsx:185"], recommended_fix="PageHeader → h1; Lab column → <div> or <section>.",
+    regression_tests=["vitest: each page renders exactly one h1 and one main."], confidence="confirmed")
+
+bug(id="A11Y-002", severity="P3", category="accessibility", route="/, /lab, /studio, /reproducibility", component="ui/kit.tsx Tabs",
+    title="Tabs lack tabpanel wiring and arrow-key navigation",
+    preconditions="Any.", steps=["Focus a tab and press ArrowRight."], expected="WAI-ARIA tabs: aria-controls/aria-labelledby, roving tabindex, arrow keys move selection.",
+    actual="ArrowRight does nothing; 0 of 17 tabs have aria-controls; panels have no role=tabpanel.",
+    evidence=[E + "05_responsive_a11y.json tabArrow, tabsWithoutPanels"], root_cause="Minimal Tabs component.", root_cause_status="established",
+    source_locations=["website/src/ui/kit.tsx:196-208"], recommended_fix="Implement the ARIA tabs pattern (ids, aria-controls, tabindex −1 on inactive tabs, Arrow/Home/End).",
+    regression_tests=["vitest: ArrowRight moves focus and selection; panel has role tabpanel."], confidence="confirmed")
+
+bug(id="A11Y-003", severity="P3", category="accessibility", route="/related, /dashboard, /lab", component="Related matrix rows; DataTable onRowClick; ForestPlot rows; GraphCanvas nodes",
+    title="Clickable rows and plot rows are not keyboard operable; SVG node focus ring is invisible",
+    preconditions="Any.", steps=["Tab through /related's evidence matrix; tab to a graph node on /lab."],
+    expected="Rows reachable and activatable with Enter/Space; visible focus on graph nodes.",
+    actual="21 clickable matrix rows are not focusable (same for DataTable rows with onRowClick and ForestPlot rows); graph nodes are focusable (28 Tabs to the first node) and Enter selects, but the focus style is a CSS box-shadow on an SVG <g>, which browsers do not paint.",
+    evidence=[E + "05_responsive_a11y.json clickableNonFocusable", "06_kb result {tabsToFirstNode:28, ring:{tag:'g', shadow:'… 0 0 0 3px'}}"],
+    root_cause="onClick on <tr>/<g> without tabIndex/key handlers; :focus-visible uses box-shadow.", root_cause_status="established (rows), highly likely (invisible ring)",
+    source_locations=["website/src/pages/Related.tsx:114", "website/src/ui/kit.tsx:290", "website/src/ui/charts.tsx:20", "website/src/styles.css:67", "website/src/graph/GraphCanvas.tsx:247-250"],
+    recommended_fix="Use buttons inside rows (or tabIndex=0 + Enter/Space handlers); for SVG nodes draw a focus halo via :focus-visible > .halo stroke; add a 'skip to graph' link.",
+    regression_tests=["vitest: Enter on a focused matrix row opens its details.", "visual: focused node shows a halo."], confidence="highly likely")
+
+bug(id="A11Y-004", severity="P3", category="accessibility", route="all (mobile ≤960 px) and route changes", component="ui/Shell.tsx",
+    title="Mobile menu does not take focus or close on Escape; route changes do not move focus or update the title",
+    preconditions="390×844.", steps=["Open the menu with the hamburger; press Escape.", "Navigate between pages with the keyboard."],
+    expected="Focus moves into the drawer and is trapped; Escape closes and returns focus; after navigation focus moves to the page h1 and document.title names the page.",
+    actual="focusInside:false; Escape leaves the drawer open; after navigation focus stays on BODY; document.title is always 'AFCR · Agent Failure Attribution'.",
+    evidence=[E + "05_responsive_a11y.json menu, escapeClosesMenu:false", E + "01_routes.json sidebar[].focused 'BODY.'"],
+    root_cause="Not implemented.", root_cause_status="established", source_locations=["website/src/ui/Shell.tsx:31-95"],
+    recommended_fix="Add focus trap + Escape handler; on location change focus the page h1 (tabIndex −1) and set document.title per route.",
+    regression_tests=["vitest: Escape closes the drawer.", "vitest: after navigation document.activeElement is the h1 and title includes the page name."], confidence="confirmed")
+
+bug(id="A11Y-005", severity="P3", category="accessibility", route="all (pointer: fine)", component="ui/Cursor.tsx; styles.css .cursor-on",
+    title="Custom cursor hides the native pointer site-wide and runs a permanent rAF loop",
+    preconditions="Desktop with a mouse, motion allowed.", steps=["Move the mouse; observe styles.css .cursor-on { cursor: none } on the root."],
+    expected="Native cursor kept (custom ring as decoration) or an opt-out; no work when idle.",
+    actual="`cursor: none` on html/a/button/label/select/.graph-svg; the ring follows via a requestAnimationFrame loop that never stops. If the loop stalls (throttled/hidden window, heavy main thread) the user sees no pointer.",
+    evidence=["code: styles.css:97, Cursor.tsx:40-45"], root_cause="Design choice.", root_cause_status="established",
+    source_locations=["website/src/ui/Cursor.tsx:11-59", "website/src/styles.css:89-99"],
+    recommended_fix="Keep the native cursor (cursor:auto) and use the ring only as a hover accent, or add a toggle in the sidebar footer; pause the loop when the pointer is idle or the document is hidden.",
+    regression_tests=["DOM: html computed cursor is not 'none'.", "unit: loop stops after N idle frames."], confidence="confirmed")
+
+bug(id="UX-002", severity="P3", category="UX", route="/theory, /related, /reproducibility, /", component="ui/kit.tsx Reveal",
+    title="Content below the fold is invisible until scrolled (print, full-page capture, find-in-page)",
+    preconditions="Any.", steps=["Open /theory and take a full-page screenshot without scrolling (or print)."],
+    expected="All content visible.", actual="Sections 3–8 are at opacity 0 in the capture.",
+    evidence=[E + "hyp_C_theory_fullpage_noscroll.png", E + "03_hypotheses.json C_theory_reveal"],
+    root_cause="Reveal starts at opacity 0 and relies on whileInView.", root_cause_status="established",
+    source_locations=["website/src/ui/kit.tsx:265-267"], recommended_fix="See AUTO-001: visible by default; add @media print { opacity:1 !important }.",
+    regression_tests=["CDP: full-page capture of /theory has no element with opacity 0 inside main."], dependencies=["AUTO-001"], confidence="confirmed")
+
+bug(id="CFG-001", severity="P3", category="documentation", route="vite preview (:4173)", component="website/vite.config.ts",
+    title="`npm run preview` has no /api proxy, so the previewed site cannot reach the backend",
+    preconditions="Built site, API on :8000.", steps=["cd website; npm run preview; open http://localhost:4173/lab."],
+    expected="Same behaviour as npm run dev (proxy to :8000) or docs saying preview is unsupported.",
+    actual="Only `server.proxy` is configured; `preview.proxy` is missing (not executed in this audit — derived from the config).",
+    evidence=["website/vite.config.ts: server: { proxy: {...} } only"], root_cause="Missing preview config.", root_cause_status="established (config); not run",
+    source_locations=["website/vite.config.ts:7"], recommended_fix="Add `preview: { proxy: { '/api': 'http://localhost:8000', '/files': 'http://localhost:8000' } }`.",
+    regression_tests=["manual/CI: npm run preview then GET /api/health through :4173 returns JSON."], confidence="highly likely")
+
+# ------------------------------------------------------------------------------------------------ P4
+bug(id="POL-001", severity="P4", category="frontend", route="/reproducibility, /lab, styles", component="Reproducibility.tsx Tabs; Lab.tsx Tip; styles.css .lab-grid",
+    title="Dead UI and conflicting CSS",
+    preconditions="Any.", steps=["See /reproducibility 'Licensing notes' tab; Lab aside empty Tip; styles.css .lab-grid."],
+    expected="No inert controls; one grid definition.",
+    actual="A one-tab <Tabs onChange={() => {}}> acts as a heading; <Tip><span /></Tip> renders an empty hover target; .lab-grid is defined at lines ~365–367 (3 columns) and overridden with !important at ~387–388 (2 columns).",
+    evidence=["code"], root_cause="Leftovers.", root_cause_status="established",
+    source_locations=["website/src/pages/Reproducibility.tsx:156", "website/src/pages/Lab.tsx:341", "website/src/styles.css:365-367,387-388"],
+    recommended_fix="Replace the fake tab with a heading; remove the empty Tip; delete the superseded .lab-grid rules.", regression_tests=["none (cleanup)"], confidence="confirmed")
+
+bug(id="POL-002", severity="P4", category="visualization", route="/lab?model=tm|tm_pal", component="Lab.tsx Tape",
+    title="Turing-machine tape window shifts as the head moves; blank symbol differs between backend and UI",
+    preconditions="API running.", steps=["Run the TM trace and step through."], expected="Fixed tape window with cell indices; one blank symbol.",
+    actual="Visible tape changes between '␣␣1011␣␣␣' and '1011␣␣␣' as the window is recomputed from the head position; backend uses '_' while the UI shows '␣'.",
+    evidence=[E + "02_lab.json tm.playback"], root_cause="Tape window = [min(0, head−2, keys), max(head+2, keys, 6)] per step.", root_cause_status="established",
+    source_locations=["website/src/pages/Lab.tsx:70-76"], recommended_fix="Compute the window once over the whole trace; show indices; use one blank glyph and explain it.",
+    regression_tests=["vitest: tape window constant across steps."], confidence="confirmed")
+
+bug(id="POL-003", severity="P4", category="backend", route="GET /openapi.json", component="src/afcr/api/app.py _mk()",
+    title="Markdown file routes appear in OpenAPI with summary ' F'",
+    preconditions="Any.", steps=["GET /openapi.json; see /files/README.md etc."], expected="Meaningful summaries or include_in_schema=False.",
+    actual="summary ' F' (from the inner function name _f).", evidence=["openapi listing"], root_cause="Generated handler name.", root_cause_status="established",
+    source_locations=["src/afcr/api/app.py:502-507"], recommended_fix="Add summary='Download <file>' or include_in_schema=False.", regression_tests=["pytest: no OpenAPI summary shorter than 3 characters."], confidence="confirmed")
+
+ORDER = {"P0": 0, "P1": 1, "P2": 2, "P3": 3, "P4": 4}
+B.sort(key=lambda b: (ORDER[b["severity"]], len(b["dependencies"]), b["id"]))
+ids = {b["id"] for b in B}
+for b in B:
+    for d in b["dependencies"]:
+        assert d in ids, (b["id"], d)
+(OUT / "bugs.json").write_text(json.dumps({"generated": "2026-10-24", "auditor": "QA review", "app": "AFCR website + API (localhost:8000)", "count": len(B), "bugs": B}, indent=1, ensure_ascii=False), encoding="utf-8")
+
+L = ["# Bug report — AFCR application audit", "",
+     f"{len(B)} records, sorted by severity, then dependency order. Machine-readable copy: [`bugs.json`](bugs.json) (generated from the same source).", "",
+     "Severity: **P0** unusable / critical integrity or security · **P1** major feature or primary workflow broken · **P2** important functionality degraded · **P3** minor defect / usability · **P4** polish.", "",
+     "| ID | Sev | Category | Title | Confidence |", "|---|---|---|---|---|"]
+for b in B:
+    L.append(f"| [{b['id']}](#{b['id'].lower()}) | {b['severity']} | {b['category']} | {b['title']} | {b['confidence']} |")
+L.append("")
+for b in B:
+    L += [f"## {b['id']}", "", f"**{b['title']}**", "",
+          f"- **Severity:** {b['severity']}  ·  **Category:** {b['category']}  ·  **Confidence:** {b['confidence']}  ·  **Status:** {b['status']}",
+          f"- **Affected page / component:** `{b['route']}` — {b['component']}",
+          f"- **Preconditions:** {b['preconditions']}", "", "**Steps to reproduce**", ""]
+    L += [f"{i}. {s}" for i, s in enumerate(b["steps"], 1)]
+    L += ["", f"**Expected.** {b['expected']}", "", f"**Actual.** {b['actual']}", "", "**Evidence**", ""]
+    L += [f"- {e}" for e in b["evidence"]]
+    L += ["", f"**Root cause ({b['root_cause_status']}).** {b['root_cause']}", "", "**Source locations**", ""]
+    L += [f"- `{s}`" for s in b["source_locations"]]
+    L += ["", f"**Recommended fix direction.** {b['recommended_fix']}", "", "**Regression tests**", ""]
+    L += [f"- {t}" for t in b["regression_tests"]]
+    L += ["", f"**Dependencies:** {', '.join(b['dependencies']) or 'none'}", ""]
+(OUT / "BUG_REPORT.md").write_text("\n".join(L), encoding="utf-8")
+print(len(B), "bugs;", {s: sum(1 for b in B if b["severity"] == s) for s in ORDER})

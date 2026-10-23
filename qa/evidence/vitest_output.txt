@@ -1,0 +1,33 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/Users/Kushagra Bansal/OneDrive/Desktop/Aloo/website[39m
+
+[90mstderr[2m | src/test/app.test.tsx[2m > [22m[2mnavigation[2m > [22m[2mnavigates between pages from the sidebar
+[22m[39m⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+[90mstderr[2m | src/test/app.test.tsx[2m > [22m[2mexperiment studio[2m > [22m[2mruns a real simulation request and enables CSV/JSON export
+[22m[39mThe width(0) and height(0) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+The width(0) and height(0) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+The width(0) and height(0) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+
+ [32m✓[39m src/test/app.test.tsx [2m([22m[2m23 tests[22m[2m)[22m[33m 5893[2mms[22m[39m
+   [33m[2m✓[22m[39m navigation[2m > [22mnavigates between pages from the sidebar [33m1195[2mms[22m[39m
+   [33m[2m✓[22m[39m input validation[2m > [22mflags invalid δ and budget inputs on the dashboard [33m560[2mms[22m[39m
+   [33m[2m✓[22m[39m attribution dashboard[2m > [22mruns the algorithm via the API and renders its outputs [33m923[2mms[22m[39m
+   [33m[2m✓[22m[39m experiment studio[2m > [22mruns a real simulation request and enables CSV/JSON export [33m1427[2mms[22m[39m
+   [33m[2m✓[22m[39m documentation search[2m > [22mfilters sections by the search term and shows an empty state [33m742[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m1 passed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[32m23 passed[39m[22m[90m (23)[39m
+[2m   Start at [22m 03:44:53
+[2m   Duration [22m 26.29s[2m (transform 555ms, setup 304ms, collect 2.08s, tests 5.89s, environment 1.54s, prepare 186ms)[22m
+

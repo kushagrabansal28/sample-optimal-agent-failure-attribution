@@ -1,0 +1,19 @@
+{
+  "_comment": "All twelve synthetic groups at the settings used for the reported results. Run: python -m afcr.experiments.suite --config configs/suite_default.json",
+  "trials": 30,
+  "workers": 6,
+  "groups": [
+    "main",
+    "gap_sweep",
+    "K_sweep",
+    "delta_sweep",
+    "stress",
+    "size_sweep",
+    "eps_sweep",
+    "noise_sweep",
+    "ablation",
+    "budget_curve",
+    "toolagent",
+    "targets"
+  ]
+}

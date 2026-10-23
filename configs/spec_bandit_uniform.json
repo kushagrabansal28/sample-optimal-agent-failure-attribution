@@ -1,0 +1,9 @@
+{
+  "kind": "bandit",
+  "K": 8,
+  "gap": 0.2,
+  "method": "uniform_fc",
+  "delta": 0.1,
+  "budget": 60000,
+  "seed": 10000
+}

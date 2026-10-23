@@ -1,0 +1,76 @@
+{
+ "A_mount_1px": {
+  "w": 0,
+  "t": "translate(0,310) scale(0)",
+  "inner": [
+   1,
+   1
+  ]
+ },
+ "A_after_resize": {
+  "w": 746,
+  "t": "translate(-20.9158878504673,80.62242990654204) scale(0.697196261682243)",
+  "inner": [
+   1440,
+   900
+  ]
+ },
+ "B_after_wheel_collapsed": {
+  "w": 0,
+  "t": "translate(Infinity,Infinity) scale(0.2)",
+  "inner": [
+   1,
+   1
+  ]
+ },
+ "B_after_resize": {
+  "w": 746,
+  "t": "translate(61,116) scale(1.6)",
+  "inner": [
+   1440,
+   900
+  ]
+ },
+ "C_theory_reveal": [
+  {
+   "op": "1",
+   "top": 232
+  },
+  {
+   "op": "1",
+   "top": 645
+  },
+  {
+   "op": "0",
+   "top": 1180
+  },
+  {
+   "op": "0",
+   "top": 1590
+  },
+  {
+   "op": "0",
+   "top": 2102
+  },
+  {
+   "op": "0",
+   "top": 2417
+  },
+  {
+   "op": "0",
+   "top": 2967
+  }
+ ],
+ "D_theme": {
+  "theme": "light",
+  "stored": "\"light\"",
+  "bg": "rgb(244, 246, 251)"
+ },
+ "exceptions": [],
+ "E_reduced_kpi_300ms": "48 | 146 | 6518 | 0",
+ "E_reduced_kpi_1800ms": "48 | 146 | 6518 | 0",
+ "E_cursor": {
+  "cls": "",
+  "ring": "none"
+ }
+}

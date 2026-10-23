@@ -1,0 +1,106 @@
+{
+ "group": "targets",
+ "n_trials_rows": 150,
+ "summary": [
+  {
+   "target": "last_above",
+   "method": "lucb",
+   "n": 30,
+   "accuracy": 1.0,
+   "acc_ci_lo": 0.8864866068260312,
+   "acc_ci_hi": 0.9999999999999999,
+   "abstain_rate": 0.5333333333333333,
+   "certified_rate": 0.4666666666666667,
+   "identified_error_rate": 0.0,
+   "err_ci_lo": 1.3877787807814457e-17,
+   "err_ci_hi": 0.2153108027376358,
+   "mean_rollouts": 34332.73333333333,
+   "median_rollouts": 60000.0,
+   "p90_rollouts": 60000.0,
+   "rollouts_ci": [
+    24684.935000000005,
+    43995.628333333334
+   ]
+  },
+  {
+   "target": "last_above",
+   "method": "car_fixed_k",
+   "n": 30,
+   "accuracy": 0.03333333333333333,
+   "acc_ci_lo": 0.005908590381612455,
+   "acc_ci_hi": 0.16670390991409173,
+   "abstain_rate": 0.0,
+   "certified_rate": 0.0,
+   "identified_error_rate": null,
+   "err_ci_lo": null,
+   "err_ci_hi": null,
+   "mean_rollouts": 1320.0,
+   "median_rollouts": 1200.0,
+   "p90_rollouts": 2210.0,
+   "rollouts_ci": [
+    1106.6666666666667,
+    1546.75
+   ]
+  },
+  {
+   "target": "last_above",
+   "method": "car_fixed_k500",
+   "n": 30,
+   "accuracy": 0.03333333333333333,
+   "acc_ci_lo": 0.005908590381612455,
+   "acc_ci_hi": 0.16670390991409173,
+   "abstain_rate": 0.0,
+   "certified_rate": 0.0,
+   "identified_error_rate": null,
+   "err_ci_lo": null,
+   "err_ci_hi": null,
+   "mean_rollouts": 6600.0,
+   "median_rollouts": 6000.0,
+   "p90_rollouts": 11050.0,
+   "rollouts_ci": [
+    5533.333333333333,
+    7733.749999999999
+   ]
+  },
+  {
+   "target": "first_above",
+   "method": "lucb",
+   "n": 30,
+   "accuracy": 1.0,
+   "acc_ci_lo": 0.8864866068260312,
+   "acc_ci_hi": 0.9999999999999999,
+   "abstain_rate": 0.0,
+   "certified_rate": 1.0,
+   "identified_error_rate": 0.0,
+   "err_ci_lo": 0.0,
+   "err_ci_hi": 0.11351339317396876,
+   "mean_rollouts": 32362.1,
+   "median_rollouts": 32977.0,
+   "p90_rollouts": 44783.6,
+   "rollouts_ci": [
+    28704.9425,
+    36050.44583333333
+   ]
+  },
+  {
+   "target": "first_above",
+   "method": "uniform_fc",
+   "n": 30,
+   "accuracy": 1.0,
+   "acc_ci_lo": 0.8864866068260312,
+   "acc_ci_hi": 0.9999999999999999,
+   "abstain_rate": 1.0,
+   "certified_rate": 0.0,
+   "identified_error_rate": null,
+   "err_ci_lo": null,
+   "err_ci_hi": null,
+   "mean_rollouts": 60000.0,
+   "median_rollouts": 60000.0,
+   "p90_rollouts": 60000.0,
+   "rollouts_ci": [
+    60000.0,
+    60000.0
+   ]
+  }
+ ]
+}

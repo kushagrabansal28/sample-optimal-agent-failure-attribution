@@ -1,0 +1,15 @@
+{
+  "_comment": "48-state automaton, LUCB with valid prefix reuse (paper \u00a710.1). Run: python -m afcr.experiments.run_one configs/spec_automaton_prefix.json",
+  "kind": "automaton",
+  "n_states": 48,
+  "eps_plan": 0.6,
+  "method": "lucb_prefix",
+  "delta": 0.1,
+  "budget": 60000,
+  "eps": 0.0,
+  "target": "argmax",
+  "conf": "stack_kl",
+  "intervention": "repair",
+  "recon_noise": 0.0,
+  "seed": 20000
+}

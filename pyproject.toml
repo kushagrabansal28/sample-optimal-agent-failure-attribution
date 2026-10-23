@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "afcr"
+version = "0.2.0"
+description = "Automata-Aware Fixed-Confidence Replay (AFCR): fixed-confidence culprit identification for agent failures"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "networkx>=3.2",
+    "matplotlib>=3.8",
+    "pydantic>=2.5",
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27"]
+docs = ["python-pptx>=0.6.23", "pillow>=10", "pymupdf>=1.24"]
+llm = ["openai>=1.30"]   # optional: only for OpenAI-compatible model providers (not needed for synthetic mode)
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
+markers = [
+    "slow: statistical/coverage tests that run many independent trials",
+]

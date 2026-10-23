@@ -1,0 +1,514 @@
+{
+ "direct": [
+  {
+   "path": "/",
+   "title": "AFCR · Agent Failure Attribution",
+   "h": [
+    "Sample-optimal culprit identification for agent failures"
+   ],
+   "textLen": 2545,
+   "active": "Overview",
+   "skeletons": 0,
+   "errors": [],
+   "hOverflow": false,
+   "h1count": 1,
+   "route": "/",
+   "console": [],
+   "exceptions": [],
+   "network": []
+  },
+  {
+   "path": "/related",
+   "title": "AFCR · Agent Failure Attribution",
+   "h": [
+    "What is known, and where is the gap?"
+   ],
+   "textLen": 8372,
+   "active": "Problem & related work",
+   "skeletons": 0,
+   "errors": [],
+   "hOverflow": false,
+   "h1count": 0,
+   "route": "/related",
+   "console": [],
+   "exceptions": [],
+   "network": []
+  },
+  {
+   "path": "/lab",
+   "title": "AFCR · Agent Failure Attribution",
+   "h": [
+    "Automata laboratory"
+   ],
+   "textLen": 2344,
+   "active": "Automata laboratory",
+   "skeletons": 0,
+   "errors": [],
+   "hOverflow": false,
+   "h1count": 0,
+   "route": "/lab",
+   "console": [],
+   "exceptions": [],
+   "network": []
+  },
+  {
+   "path": "/explorer",
+   "title": "AFCR · Agent Failure Attribution",
+   "h": [
+    "Trajectory explorer"
+   ],
+   "textLen": 576,
+   "active": "Trajectory explorer",
+   "skeletons": 0,
+   "errors": [],
+   "hOverflow": false,
+   "h1count": 0,
+   "route": "/explorer",
+   "console": [],
+   "exceptions": [],
+   "network": []
+  },
+  {
+   "path": "/dashboard",
+   "title": "AFCR · Agent Failure Attribution",
+   "h": [
+    "Attribution dashboard"
+   ],
+   "textLen": 1014,
+   "active": "Attribution dashboard",
+   "skeletons": 0,
+   "errors": [],
+   "hOverflow": false,
+   "h1count": 0,
+   "route": "/dashboard",
+   "console": [],
+   "exceptions": [],
+   "network": []
+  },
+  {
+   "path": "/studio",
+   "title": "AFCR · Agent Failure Attribution",
+   "h": [
+    "Experiment studio"
+   ],
+   "textLen": 2094,
+   "active": "Experiment studio",
+   "skeletons": 0,
+   "errors": [],
+   "hOverflow": false,
+   "h1count": 0,
+   "route": "/studio",
+   "console": [],
+   "exceptions": [],
+   "network": []
+  },
+  {
+   "path": "/theory",
+   "title": "AFCR · Agent Failure Attribution",
+   "h": [
+    "Theory and what is actually proved"
+   ],
+   "textLen": 8214,
+   "active": "Theory & guarantees",
+   "skeletons": 0,
+   "errors": [],
+   "hOverflow": false,
+   "h1count": 0,
+   "route": "/theory",
+   "console": [],
+   "exceptions": [],
+   "network": []
+  },
+  {
+   "path": "/reproducibility",
+   "title": "AFCR · Agent Failure Attribution",
+   "h": [
+    "Run it yourself"
+   ],
+   "textLen": 6696,
+   "active": "Reproducibility",
+   "skeletons": 0,
+   "errors": [],
+   "hOverflow": false,
+   "h1count": 0,
+   "route": "/reproducibility",
+   "console": [],
+   "exceptions": [],
+   "network": []
+  },
+  {
+   "path": "/docs",
+   "title": "AFCR · Agent Failure Attribution",
+   "h": [
+    "Reference"
+   ],
+   "textLen": 4212,
+   "active": "Documentation",
+   "skeletons": 0,
+   "errors": [],
+   "hOverflow": false,
+   "h1count": 0,
+   "route": "/docs",
+   "console": [],
+   "exceptions": [],
+   "network": []
+  },
+  {
+   "path": "/does-not-exist",
+   "title": "AFCR · Agent Failure Attribution",
+   "h": [
+    "Page not found"
+   ],
+   "textLen": 93,
+   "active": null,
+   "skeletons": 0,
+   "errors": [],
+   "hOverflow": false,
+   "h1count": 0,
+   "route": "/does-not-exist",
+   "console": [],
+   "exceptions": [],
+   "network": []
+  }
+ ],
+ "kpiTimeline": [
+  [
+   0,
+   "0 | 0 | 15 | 0"
+  ],
+  [
+   60,
+   "12 | 37 | 1904 | 0"
+  ],
+  [
+   120,
+   "21 | 62 | 2997 | 0"
+  ],
+  [
+   180,
+   "27 | 82 | 3842 | 0"
+  ],
+  [
+   240,
+   "33 | 99 | 4558 | 0"
+  ],
+  [
+   300,
+   "38 | 116 | 5269 | 0"
+  ],
+  [
+   360,
+   "41 | 126 | 5691 | 0"
+  ],
+  [
+   420,
+   "43 | 132 | 5937 | 0"
+  ],
+  [
+   480,
+   "46 | 139 | 6229 | 0"
+  ],
+  [
+   540,
+   "47 | 143 | 6401 | 0"
+  ],
+  [
+   600,
+   "48 | 145 | 6469 | 0"
+  ],
+  [
+   660,
+   "48 | 146 | 6508 | 0"
+  ],
+  [
+   720,
+   "48 | 146 | 6518 | 0"
+  ]
+ ],
+ "sidebar": [
+  {
+   "clicked": "Problem & related work",
+   "path": "/related",
+   "active": "Problem & related work",
+   "mains": 1,
+   "h": "What is known, and where is the gap?",
+   "scrollY": 0,
+   "focused": "BODY.",
+   "result": "ok"
+  },
+  {
+   "clicked": "Automata laboratory",
+   "path": "/lab",
+   "active": "Automata laboratory",
+   "mains": 1,
+   "h": "Automata laboratory",
+   "scrollY": 0,
+   "focused": "BODY.",
+   "result": "ok"
+  },
+  {
+   "clicked": "Trajectory explorer",
+   "path": "/explorer",
+   "active": "Trajectory explorer",
+   "mains": 1,
+   "h": "Trajectory explorer",
+   "scrollY": 0,
+   "focused": "BODY.",
+   "result": "ok"
+  },
+  {
+   "clicked": "Attribution dashboard",
+   "path": "/dashboard",
+   "active": "Attribution dashboard",
+   "mains": 1,
+   "h": "Attribution dashboard",
+   "scrollY": 0,
+   "focused": "BODY.",
+   "result": "ok"
+  },
+  {
+   "clicked": "Experiment studio",
+   "path": "/studio",
+   "active": "Experiment studio",
+   "mains": 1,
+   "h": "Experiment studio",
+   "scrollY": 0,
+   "focused": "BODY.",
+   "result": "ok"
+  },
+  {
+   "clicked": "Theory & guarantees",
+   "path": "/theory",
+   "active": "Theory & guarantees",
+   "mains": 1,
+   "h": "Theory and what is actually proved",
+   "scrollY": 0,
+   "focused": "BODY.",
+   "result": "ok"
+  },
+  {
+   "clicked": "Reproducibility",
+   "path": "/reproducibility",
+   "active": "Reproducibility",
+   "mains": 1,
+   "h": "Run it yourself",
+   "scrollY": 0,
+   "focused": "BODY.",
+   "result": "ok"
+  },
+  {
+   "clicked": "Documentation",
+   "path": "/docs",
+   "active": "Documentation",
+   "mains": 1,
+   "h": "Reference",
+   "scrollY": 0,
+   "focused": "BODY.",
+   "result": "ok"
+  },
+  {
+   "clicked": "Overview",
+   "path": "/",
+   "active": "Overview",
+   "mains": 1,
+   "h": "Sample-optimal culprit identification for agent failures",
+   "scrollY": 0,
+   "focused": "BODY.",
+   "result": "ok"
+  }
+ ],
+ "history": [
+  "/ | Sample-optimal culprit identification fo | active=Overview",
+  "/docs | Reference",
+  "/ | Sample-optimal culprit identification fo"
+ ],
+ "labAfterClientNav": {
+  "w": 745.625,
+  "transform": "translate(-20.9158878504673,80.62242990654204) scale(0.697196261682243)",
+  "nodes": 48
+ },
+ "refreshNested": {
+  "path": "/lab?model=pda",
+  "pressed": [
+   "Pushdown automaton"
+  ],
+  "nodes": 2
+ },
+ "allConsole": [
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cx: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  },
+  {
+   "type": "log-error",
+   "text": "Error: <circle> attribute cy: Expected length, \"undefined\". http://localhost:8000/assets/index-myQ639Wi.js",
+   "url": "/"
+  }
+ ],
+ "allExceptions": [],
+ "apiRequests": [
+  "200 /api/trajectory",
+  "200 /api/automata/graph",
+  "200 /api/health",
+  "200 /api/tests",
+  "200 /api/results/index",
+  "200 /api/research/related",
+  "200 /api/research/novelty",
+  "200 /api/automata/models",
+  "200 /api/automata/compare",
+  "200 /api/results/group/main",
+  "200 /api/results/export",
+  "200 /openapi.json"
+ ]
+}

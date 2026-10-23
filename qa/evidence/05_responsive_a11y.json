@@ -1,0 +1,833 @@
+{
+ "resp": {
+  "1440x900 /": {
+   "hOverflow": false,
+   "scrollW": 1440,
+   "overflowing": [
+    "semantics.",
+    "mrow.",
+    "mtext."
+   ],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "52px",
+   "smallestText": 11
+  },
+  "1440x900 /lab": {
+   "hOverflow": false,
+   "scrollW": 1440,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": 746,
+   "graphVisibleNodes": 48,
+   "graphNodes": 48,
+   "h1Size": "40px",
+   "smallestText": 9.5
+  },
+  "1440x900 /explorer?autoload=1": {
+   "hOverflow": false,
+   "scrollW": 1440,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 10.8333
+  },
+  "1440x900 /dashboard?autorun=1": {
+   "hOverflow": false,
+   "scrollW": 1440,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 1
+  },
+  "1440x900 /studio": {
+   "hOverflow": false,
+   "scrollW": 1440,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 11.18
+  },
+  "1440x900 /theory": {
+   "hOverflow": false,
+   "scrollW": 1440,
+   "overflowing": [
+    "semantics.",
+    "mrow.",
+    "munder.",
+    "mrow.",
+    "mi.",
+    "mrow."
+   ],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 1
+  },
+  "1440x900 /related": {
+   "hOverflow": false,
+   "scrollW": 1440,
+   "overflowing": [
+    "g.[object",
+    "line.[object",
+    "rect.[object",
+    "text.[object"
+   ],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 11
+  },
+  "1440x900 /reproducibility": {
+   "hOverflow": false,
+   "scrollW": 1440,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 10.75
+  },
+  "1440x900 /docs": {
+   "hOverflow": false,
+   "scrollW": 1440,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 11.18
+  },
+  "1280x800 /": {
+   "hOverflow": false,
+   "scrollW": 1280,
+   "overflowing": [
+    "semantics.",
+    "mrow.",
+    "mtext."
+   ],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "52px",
+   "smallestText": 11
+  },
+  "1280x800 /lab": {
+   "hOverflow": false,
+   "scrollW": 1280,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": 595,
+   "graphVisibleNodes": 48,
+   "graphNodes": 48,
+   "h1Size": "40px",
+   "smallestText": 9.5
+  },
+  "1280x800 /explorer?autoload=1": {
+   "hOverflow": false,
+   "scrollW": 1280,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 10.8333
+  },
+  "1280x800 /dashboard?autorun=1": {
+   "hOverflow": false,
+   "scrollW": 1280,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 1
+  },
+  "1280x800 /studio": {
+   "hOverflow": false,
+   "scrollW": 1280,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 11.18
+  },
+  "1280x800 /theory": {
+   "hOverflow": false,
+   "scrollW": 1280,
+   "overflowing": [
+    "semantics.",
+    "mrow.",
+    "mo.",
+    "munder.",
+    "mrow.",
+    "mi."
+   ],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 1
+  },
+  "1280x800 /related": {
+   "hOverflow": false,
+   "scrollW": 1280,
+   "overflowing": [
+    "g.[object",
+    "line.[object",
+    "text.[object"
+   ],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 11
+  },
+  "1280x800 /reproducibility": {
+   "hOverflow": false,
+   "scrollW": 1280,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 10.75
+  },
+  "1280x800 /docs": {
+   "hOverflow": false,
+   "scrollW": 1280,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "40px",
+   "smallestText": 11.18
+  },
+  "1024x768 /": {
+   "hOverflow": false,
+   "scrollW": 1024,
+   "overflowing": [
+    "semantics.",
+    "mrow.",
+    "mo.",
+    "mo.",
+    "mi.",
+    "mspace."
+   ],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "43.008px",
+   "smallestText": 11
+  },
+  "1024x768 /lab": {
+   "hOverflow": false,
+   "scrollW": 1024,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": 671,
+   "graphVisibleNodes": 48,
+   "graphNodes": 48,
+   "h1Size": "32.768px",
+   "smallestText": 9.5
+  },
+  "1024x768 /explorer?autoload=1": {
+   "hOverflow": false,
+   "scrollW": 1024,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "32.768px",
+   "smallestText": 10.8333
+  },
+  "1024x768 /dashboard?autorun=1": {
+   "hOverflow": false,
+   "scrollW": 1024,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "32.768px",
+   "smallestText": 1
+  },
+  "1024x768 /studio": {
+   "hOverflow": false,
+   "scrollW": 1024,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "32.768px",
+   "smallestText": 11.18
+  },
+  "1024x768 /theory": {
+   "hOverflow": false,
+   "scrollW": 1024,
+   "overflowing": [
+    "semantics.",
+    "mrow.",
+    "msub.",
+    "mrow.",
+    "mi.",
+    "mi."
+   ],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "32.768px",
+   "smallestText": 1
+  },
+  "1024x768 /related": {
+   "hOverflow": false,
+   "scrollW": 1024,
+   "overflowing": [
+    "g.[object",
+    "line.[object"
+   ],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "32.768px",
+   "smallestText": 11
+  },
+  "1024x768 /reproducibility": {
+   "hOverflow": false,
+   "scrollW": 1024,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "32.768px",
+   "smallestText": 10.75
+  },
+  "1024x768 /docs": {
+   "hOverflow": false,
+   "scrollW": 1024,
+   "overflowing": [],
+   "sidebarVisible": true,
+   "topbar": false,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "32.768px",
+   "smallestText": 11.18
+  },
+  "768x1024 /": {
+   "hOverflow": false,
+   "scrollW": 768,
+   "overflowing": [
+    "semantics.",
+    "mrow.",
+    "mo.",
+    "mo.",
+    "mi.",
+    "mspace."
+   ],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "32.256px",
+   "smallestText": 11
+  },
+  "768x1024 /lab": {
+   "hOverflow": false,
+   "scrollW": 768,
+   "overflowing": [],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": 682,
+   "graphVisibleNodes": 48,
+   "graphNodes": 48,
+   "h1Size": "26px",
+   "smallestText": 9.5
+  },
+  "768x1024 /explorer?autoload=1": {
+   "hOverflow": false,
+   "scrollW": 768,
+   "overflowing": [],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 10.8333
+  },
+  "768x1024 /dashboard?autorun=1": {
+   "hOverflow": false,
+   "scrollW": 768,
+   "overflowing": [],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 1
+  },
+  "768x1024 /studio": {
+   "hOverflow": false,
+   "scrollW": 768,
+   "overflowing": [],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 11.18
+  },
+  "768x1024 /theory": {
+   "hOverflow": false,
+   "scrollW": 768,
+   "overflowing": [
+    "semantics.",
+    "mrow.",
+    "msub.",
+    "mrow.",
+    "mi.",
+    "mi."
+   ],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 1
+  },
+  "768x1024 /related": {
+   "hOverflow": false,
+   "scrollW": 768,
+   "overflowing": [
+    "g.[object",
+    "line.[object",
+    "rect.[object",
+    "text.[object"
+   ],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 11
+  },
+  "768x1024 /reproducibility": {
+   "hOverflow": false,
+   "scrollW": 768,
+   "overflowing": [],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 10.75
+  },
+  "768x1024 /docs": {
+   "hOverflow": false,
+   "scrollW": 768,
+   "overflowing": [],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 11.18
+  },
+  "390x844 /": {
+   "hOverflow": false,
+   "scrollW": 390,
+   "overflowing": [
+    "semantics.",
+    "mrow.",
+    "mtext.",
+    "mo.",
+    "mo.",
+    "mi."
+   ],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "30px",
+   "smallestText": 11
+  },
+  "390x844 /lab": {
+   "hOverflow": false,
+   "scrollW": 390,
+   "overflowing": [],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": 318,
+   "graphVisibleNodes": 48,
+   "graphNodes": 48,
+   "h1Size": "26px",
+   "smallestText": 9.5
+  },
+  "390x844 /explorer?autoload=1": {
+   "hOverflow": false,
+   "scrollW": 390,
+   "overflowing": [],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 10.8333
+  },
+  "390x844 /dashboard?autorun=1": {
+   "hOverflow": false,
+   "scrollW": 390,
+   "overflowing": [
+    "semantics.",
+    "mrow.",
+    "msub.",
+    "mrow.",
+    "mi.",
+    "mi."
+   ],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 1
+  },
+  "390x844 /studio": {
+   "hOverflow": false,
+   "scrollW": 390,
+   "overflowing": [],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 11.18
+  },
+  "390x844 /theory": {
+   "hOverflow": false,
+   "scrollW": 390,
+   "overflowing": [
+    "semantics.",
+    "mrow.",
+    "mtext.",
+    "mo.",
+    "mo.",
+    "mspace."
+   ],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 1
+  },
+  "390x844 /related": {
+   "hOverflow": false,
+   "scrollW": 390,
+   "overflowing": [],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 11
+  },
+  "390x844 /reproducibility": {
+   "hOverflow": false,
+   "scrollW": 390,
+   "overflowing": [],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 10.75
+  },
+  "390x844 /docs": {
+   "hOverflow": false,
+   "scrollW": 390,
+   "overflowing": [],
+   "sidebarVisible": false,
+   "topbar": true,
+   "graphW": null,
+   "graphVisibleNodes": null,
+   "graphNodes": null,
+   "h1Size": "26px",
+   "smallestText": 11.18
+  }
+ },
+ "menu": {
+  "open": true,
+  "scrim": true,
+  "focusInside": false
+ },
+ "menuAfter": {
+  "open": false,
+  "path": "/theory"
+ },
+ "escapeClosesMenu": false,
+ "a11y": {
+  "/": {
+   "landmarks": {
+    "main": 1,
+    "nav": 1,
+    "aside": 1,
+    "header": 0
+   },
+   "headings": "H1H3H3H3H3H3",
+   "h1": 1,
+   "unnamedButtons": [],
+   "unlabeledInputs": [],
+   "imgsNoAlt": 0,
+   "nestedMain": 0,
+   "svgNoName": 1,
+   "lowContrastCount": 0,
+   "lowContrastSample": [],
+   "tabsWithoutPanels": 7,
+   "clickableNonFocusable": 0
+  },
+  "/lab": {
+   "landmarks": {
+    "main": 2,
+    "nav": 1,
+    "aside": 2,
+    "header": 1
+   },
+   "headings": "H2H3H3",
+   "h1": 0,
+   "unnamedButtons": [],
+   "unlabeledInputs": [],
+   "imgsNoAlt": 0,
+   "nestedMain": 1,
+   "svgNoName": 0,
+   "lowContrastCount": 0,
+   "lowContrastSample": [],
+   "tabsWithoutPanels": 6,
+   "clickableNonFocusable": 0
+  },
+  "/explorer": {
+   "landmarks": {
+    "main": 1,
+    "nav": 1,
+    "aside": 1,
+    "header": 1
+   },
+   "headings": "H2H3",
+   "h1": 0,
+   "unnamedButtons": [],
+   "unlabeledInputs": [],
+   "imgsNoAlt": 0,
+   "nestedMain": 0,
+   "svgNoName": 0,
+   "lowContrastCount": 0,
+   "lowContrastSample": [],
+   "tabsWithoutPanels": 0,
+   "clickableNonFocusable": 0
+  },
+  "/dashboard": {
+   "landmarks": {
+    "main": 1,
+    "nav": 1,
+    "aside": 1,
+    "header": 1
+   },
+   "headings": "H2H3",
+   "h1": 0,
+   "unnamedButtons": [],
+   "unlabeledInputs": [],
+   "imgsNoAlt": 0,
+   "nestedMain": 0,
+   "svgNoName": 0,
+   "lowContrastCount": 0,
+   "lowContrastSample": [],
+   "tabsWithoutPanels": 0,
+   "clickableNonFocusable": 0
+  },
+  "/studio": {
+   "landmarks": {
+    "main": 1,
+    "nav": 1,
+    "aside": 1,
+    "header": 1
+   },
+   "headings": "H2H3H4H4",
+   "h1": 0,
+   "unnamedButtons": [],
+   "unlabeledInputs": [],
+   "imgsNoAlt": 0,
+   "nestedMain": 0,
+   "svgNoName": 0,
+   "lowContrastCount": 0,
+   "lowContrastSample": [],
+   "tabsWithoutPanels": 3,
+   "clickableNonFocusable": 0
+  },
+  "/theory": {
+   "landmarks": {
+    "main": 1,
+    "nav": 1,
+    "aside": 1,
+    "header": 1
+   },
+   "headings": "H2H3H3H3H3H3H3H3H3",
+   "h1": 0,
+   "unnamedButtons": [],
+   "unlabeledInputs": [],
+   "imgsNoAlt": 0,
+   "nestedMain": 0,
+   "svgNoName": 0,
+   "lowContrastCount": 0,
+   "lowContrastSample": [],
+   "tabsWithoutPanels": 0,
+   "clickableNonFocusable": 0
+  },
+  "/related": {
+   "landmarks": {
+    "main": 1,
+    "nav": 1,
+    "aside": 1,
+    "header": 1
+   },
+   "headings": "H2H3H3H3H3H3H3H3H3H3",
+   "h1": 0,
+   "unnamedButtons": [],
+   "unlabeledInputs": [],
+   "imgsNoAlt": 0,
+   "nestedMain": 0,
+   "svgNoName": 0,
+   "lowContrastCount": 0,
+   "lowContrastSample": [],
+   "tabsWithoutPanels": 0,
+   "clickableNonFocusable": 21
+  },
+  "/reproducibility": {
+   "landmarks": {
+    "main": 1,
+    "nav": 1,
+    "aside": 1,
+    "header": 1
+   },
+   "headings": "H2H3H3H3H3H3H3H3H3",
+   "h1": 0,
+   "unnamedButtons": [],
+   "unlabeledInputs": [],
+   "imgsNoAlt": 0,
+   "nestedMain": 0,
+   "svgNoName": 0,
+   "lowContrastCount": 0,
+   "lowContrastSample": [],
+   "tabsWithoutPanels": 1,
+   "clickableNonFocusable": 0
+  },
+  "/docs": {
+   "landmarks": {
+    "main": 1,
+    "nav": 1,
+    "aside": 1,
+    "header": 1
+   },
+   "headings": "H2H3H3H3H3H3H3",
+   "h1": 0,
+   "unnamedButtons": [],
+   "unlabeledInputs": [],
+   "imgsNoAlt": 0,
+   "nestedMain": 0,
+   "svgNoName": 0,
+   "lowContrastCount": 0,
+   "lowContrastSample": [],
+   "tabsWithoutPanels": 0,
+   "clickableNonFocusable": 0
+  }
+ },
+ "tabSeq": [
+  "A AFCRAgent failure attribution | ring:true",
+  "A Overview | ring:true",
+  "A Problem & related work | ring:true",
+  "A Automata laboratory | ring:true",
+  "A Trajectory explorer | ring:true",
+  "A Attribution dashboard | ring:true"
+ ],
+ "nodeKb": null,
+ "tabArrow": {
+  "focused": "Trace & playback",
+  "selected": "Trace & playback"
+ },
+ "live": {
+  "toastsLive": "polite",
+  "docTitleChangesPerRoute": "AFCR · Agent Failure Attribution"
+ },
+ "exceptions": []
+}

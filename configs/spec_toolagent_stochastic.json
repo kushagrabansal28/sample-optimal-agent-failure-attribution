@@ -1,0 +1,9 @@
+{
+  "_comment": "Stage B tool-using agent (stochastic variant), epsilon-optimal target.",
+  "kind": "toolagent",
+  "method": "lucb_prefix",
+  "eps": 0.03,
+  "delta": 0.1,
+  "budget": 15000,
+  "seed": 50000
+}

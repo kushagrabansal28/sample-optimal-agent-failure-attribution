@@ -1,0 +1,21 @@
+# dependencies and build output
+node_modules/
+website/dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+# local logs and scratch
+*.log
+website/build.log
+website/npm_install.log
+results/processed/api_log.txt
+results/processed/api_err.txt
+results/processed/*_log.txt
+results/processed/_*
+.env
+# editor / OS
+.vscode/
+.idea/
+Thumbs.db

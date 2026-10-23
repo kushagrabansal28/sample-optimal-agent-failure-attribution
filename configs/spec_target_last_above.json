@@ -1,0 +1,12 @@
+{
+  "_comment": "Last-above-theta target on resample arms (CAR's point-of-commitment with a margin).",
+  "kind": "automaton",
+  "eps_plan": 0.6,
+  "intervention": "resample",
+  "target": "last_above",
+  "theta": 0.45,
+  "method": "lucb",
+  "delta": 0.1,
+  "budget": 60000,
+  "seed": 60000
+}

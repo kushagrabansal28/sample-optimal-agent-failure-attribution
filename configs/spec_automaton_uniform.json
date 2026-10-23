@@ -1,0 +1,10 @@
+{
+  "_comment": "Same instance as spec_automaton_prefix.json, uniform allocation with the same stopping rule (paired comparison).",
+  "kind": "automaton",
+  "n_states": 48,
+  "eps_plan": 0.6,
+  "method": "uniform_fc",
+  "delta": 0.1,
+  "budget": 60000,
+  "seed": 20000
+}

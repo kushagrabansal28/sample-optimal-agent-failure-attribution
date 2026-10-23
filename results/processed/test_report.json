@@ -1,0 +1,775 @@
+{
+ "available": true,
+ "total": 179,
+ "passed": 179,
+ "failed": 0,
+ "skipped": 0,
+ "modules": {
+  "test_api_automata": {
+   "passed": 36,
+   "failed": 0,
+   "tests": [
+    {
+     "name": "test_every_graph_has_q_numbered_states_one_start_and_valid_edges[dfa]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_graph_has_q_numbered_states_one_start_and_valid_edges[nfa]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_graph_has_q_numbered_states_one_start_and_valid_edges[enfa]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_graph_has_q_numbered_states_one_start_and_valid_edges[pa]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_graph_has_q_numbered_states_one_start_and_valid_edges[lts]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_graph_has_q_numbered_states_one_start_and_valid_edges[mealy]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_graph_has_q_numbered_states_one_start_and_valid_edges[moore]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_graph_has_q_numbered_states_one_start_and_valid_edges[pda]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_graph_has_q_numbered_states_one_start_and_valid_edges[pda_typed]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_graph_has_q_numbered_states_one_start_and_valid_edges[tm]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_graph_has_q_numbered_states_one_start_and_valid_edges[tm_pal]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_graph_has_q_numbered_states_one_start_and_valid_edges[tm_loop]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_agent48_states_are_q0_to_q47_and_the_count_is_48",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_agent48_dfa_view_is_total_and_draws_the_sink_without_counting_it",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_derived_views_of_nfa_and_enfa",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_toy_dfa_is_total_and_has_a_dead_state",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_documented_example_behaves_as_stated[dfa]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_documented_example_behaves_as_stated[nfa]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_documented_example_behaves_as_stated[enfa]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_documented_example_behaves_as_stated[pa]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_documented_example_behaves_as_stated[lts]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_documented_example_behaves_as_stated[mealy]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_documented_example_behaves_as_stated[moore]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_documented_example_behaves_as_stated[pda]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_documented_example_behaves_as_stated[pda_typed]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_documented_example_behaves_as_stated[tm]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_documented_example_behaves_as_stated[tm_pal]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_documented_example_behaves_as_stated[tm_loop]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_probabilistic_automaton_reports_a_probability_not_a_verdict",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_transducers_have_outputs_and_no_acceptance[mealy]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_transducers_have_outputs_and_no_acceptance[moore]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_pda_rejection_still_shows_where_it_failed",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_turing_machine_traces_are_consistent_and_unknown_is_not_reject",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_nfa_trace_exposes_active_sets_and_enfa_the_initial_closure",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_lts_blocked_step_is_reported",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_unknown_model_and_oversized_state_counts_are_rejected",
+     "outcome": "passed"
+    }
+   ]
+  },
+  "test_api_http": {
+   "passed": 20,
+   "failed": 0,
+   "tests": [
+    {
+     "name": "test_replay_rejects_bad_input_with_422[body0]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_replay_rejects_bad_input_with_422[body1]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_replay_rejects_bad_input_with_422[body2]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_replay_rejects_bad_input_with_422[body3]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_replay_rejects_bad_input_with_422[body4]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_replay_rejects_bad_input_with_422[body5]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_estimate_rejects_negative_seed_with_422",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_no_endpoint_returns_500_for_out_of_range_numbers",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_oversized_experiment_is_refused_with_an_explanation",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_a_small_experiment_still_runs",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_replay_and_estimate_still_work_for_valid_input",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_static_fallback_never_serves_files_outside_dist[/../../pyproject.toml]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_static_fallback_never_serves_files_outside_dist[/..%2F..%2Fpyproject.toml]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_static_fallback_never_serves_files_outside_dist[/%2e%2e/%2e%2e/pyproject.toml]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_static_fallback_never_serves_files_outside_dist[/..%5C..%5Cpyproject.toml]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_static_fallback_never_serves_files_outside_dist[/assets/../../../pyproject.toml]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_static_fallback_never_serves_files_outside_dist[/....//....//pyproject.toml]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_unknown_api_and_file_routes_are_404_json_but_pages_still_load",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_built_assets_are_still_served",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_openapi_summaries_are_meaningful",
+     "outcome": "passed"
+    }
+   ]
+  },
+  "test_attribution": {
+   "passed": 16,
+   "failed": 0,
+   "tests": [
+    {
+     "name": "test_deterministic_planted_culprit",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_ranking_with_different_probabilities",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_tied_best_abstains_not_fabricates",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_epsilon_resolves_ties",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_budget_exhaustion_accounting",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_validation_errors",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_reproducible_with_seed",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_rollout_accounting_and_stopping_rule_consistency",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_adaptive_beats_uniform_on_average",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_threshold_targets_exact",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_fixed_budget_car_and_oracle",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_prefix_sharing_valid_and_no_invalid_sharing",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_sharing_disabled_under_reconstruction_noise",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_prefix_reachability_last_step_shares_nothing",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_empirical_error_rate_below_delta",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_metrics_computed_from_raw_results",
+     "outcome": "passed"
+    }
+   ]
+  },
+  "test_automata": {
+   "passed": 14,
+   "failed": 0,
+   "tests": [
+    {
+     "name": "test_dfa_total_deterministic_accepts",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_dfa_missing_transition_raises_and_sink_completion",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_dfa_invalid_inputs",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_nfa_active_set_and_acceptance",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_nfa_to_dfa_equivalence",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_enfa_closure_and_equivalence",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_pa_normalisation_and_probability",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_lts_reachability_deadlock",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_mealy_moore",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_pda_requires_stack",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_turing",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_agent48_state_count_and_validity",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_agent48_views_and_formal_properties",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_exact_mu_planted_culprit_is_argmax",
+     "outcome": "passed"
+    }
+   ]
+  },
+  "test_configs": {
+   "passed": 13,
+   "failed": 0,
+   "tests": [
+    {
+     "name": "test_there_are_example_specs_for_every_instance_family",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_example_spec_runs_and_is_reproducible[spec_automaton_96.json]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_example_spec_runs_and_is_reproducible[spec_automaton_noise.json]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_example_spec_runs_and_is_reproducible[spec_automaton_prefix.json]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_example_spec_runs_and_is_reproducible[spec_automaton_uniform.json]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_example_spec_runs_and_is_reproducible[spec_bandit_gap.json]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_example_spec_runs_and_is_reproducible[spec_bandit_uniform.json]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_example_spec_runs_and_is_reproducible[spec_target_first_above.json]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_example_spec_runs_and_is_reproducible[spec_target_last_above.json]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_example_spec_runs_and_is_reproducible[spec_toolagent_deterministic.json]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_example_spec_runs_and_is_reproducible[spec_toolagent_stochastic.json]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_cli_overrides_and_validation",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_suite_configs_reference_known_groups",
+     "outcome": "passed"
+    }
+   ]
+  },
+  "test_results_consistency": {
+   "passed": 31,
+   "failed": 0,
+   "tests": [
+    {
+     "name": "test_processed_summaries_are_recomputable_from_raw_rows[main]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_processed_summaries_are_recomputable_from_raw_rows[gap_sweep]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_processed_summaries_are_recomputable_from_raw_rows[K_sweep]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_processed_summaries_are_recomputable_from_raw_rows[delta_sweep]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_processed_summaries_are_recomputable_from_raw_rows[stress]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_processed_summaries_are_recomputable_from_raw_rows[size_sweep]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_processed_summaries_are_recomputable_from_raw_rows[eps_sweep]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_processed_summaries_are_recomputable_from_raw_rows[noise_sweep]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_processed_summaries_are_recomputable_from_raw_rows[ablation]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_processed_summaries_are_recomputable_from_raw_rows[budget_curve]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_processed_summaries_are_recomputable_from_raw_rows[toolagent]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_processed_summaries_are_recomputable_from_raw_rows[targets]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_paired_statistics_are_recomputable_from_raw_rows",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_raw_rows_are_internally_consistent[main]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_raw_rows_are_internally_consistent[gap_sweep]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_raw_rows_are_internally_consistent[K_sweep]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_raw_rows_are_internally_consistent[delta_sweep]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_raw_rows_are_internally_consistent[stress]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_raw_rows_are_internally_consistent[size_sweep]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_raw_rows_are_internally_consistent[eps_sweep]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_raw_rows_are_internally_consistent[noise_sweep]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_raw_rows_are_internally_consistent[ablation]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_raw_rows_are_internally_consistent[budget_curve]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_raw_rows_are_internally_consistent[toolagent]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_raw_rows_are_internally_consistent[targets]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_no_wrong_certified_answer_in_guaranteed_runs",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_sample_complexity_scales_with_the_gap",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_cost_grows_roughly_like_inverse_gap_squared_for_uniform",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_every_method_respects_the_lower_bound_on_average",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_adaptive_beats_uniform_in_every_gap_and_k_setting",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_summarize_matches_manual_computation_on_raw_rows",
+     "outcome": "passed"
+    }
+   ]
+  },
+  "test_statistics": {
+   "passed": 34,
+   "failed": 0,
+   "tests": [
+    {
+     "name": "test_kl_basic_values",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[0.01-0.0]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[0.01-0.2]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[0.01-0.5]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[0.01-0.97]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[0.01-1.0]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[0.5-0.0]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[0.5-0.2]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[0.5-0.5]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[0.5-0.97]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[0.5-1.0]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[3.0-0.0]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[3.0-0.2]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[3.0-0.5]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[3.0-0.97]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_brackets_the_ball[3.0-1.0]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_inversion_infinite_radius_is_trivial",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_confidence_edge_cases[StackKL]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_confidence_edge_cases[StackHoeffding]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_confidence_shrinks_with_n_and_grows_with_confidence",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_stack_kl_never_wider_than_hoeffding",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_delta_validation[0.0]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_delta_validation[1.0]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_delta_validation[-0.1]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_delta_validation[1.5]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_input_validation",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_kl_lucb_rate_matches_published_constants",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_wilson_is_flagged_non_sequential",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_flags_for_sharing_validity",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_gaps_and_hardness",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_characteristic_time_two_arms_is_inverse_chernoff",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_characteristic_time_monotone_in_gap_and_inf_for_ties",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_confidence_sequence_coverage_under_adaptive_sampling[StackKL]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_confidence_sequence_coverage_under_adaptive_sampling[StackHoeffding]",
+     "outcome": "passed"
+    }
+   ]
+  },
+  "test_toolagent_and_benchmarks": {
+   "passed": 15,
+   "failed": 0,
+   "tests": [
+    {
+     "name": "test_safe_calc_rejects_code_and_allows_arithmetic",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_tool_world_dp_matches_monte_carlo",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_tool_world_kernels_are_distributions",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_deterministic_variant_has_unique_culprit_and_is_deterministic",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_deterministic_planted_fault_each_type[0]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_deterministic_planted_fault_each_type[1]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_deterministic_planted_fault_each_type[4]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_deterministic_planted_fault_each_type[5]",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_attribution_on_tool_agent_finds_good_culprit",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_theorem3_matched_observations_unbiased_and_naive_biased_automaton",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_theorem3_unbiased_on_tool_agent",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_providers",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_hotpot_game_and_evaluator",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_alfworld_unavailable_is_reported_cleanly",
+     "outcome": "passed"
+    },
+    {
+     "name": "test_text_game_replay_env_with_mock_agent_is_not_a_benchmark_result",
+     "outcome": "passed"
+    }
+   ]
+  }
+ },
+ "command": "python -m pytest",
+ "ran_at": "2026-10-24 04:50"
+}

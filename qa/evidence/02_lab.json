@@ -1,0 +1,1591 @@
+{
+ "agent48": {
+  "initial": {
+   "svgW": 746,
+   "transform": "translate(-20.9158878504673,80.62242990654204) scale(0.697196261682243)",
+   "nodes": 48,
+   "visibleNodes": 48,
+   "edges": 89,
+   "labels": 7,
+   "overlappingLabelPairs": 0,
+   "startMarker": false,
+   "title": "48-state agent automaton48 states",
+   "word": null,
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Counterfactual branch",
+    "Compare models",
+    "Test status (3)"
+   ],
+   "badges": [
+    "48 states"
+   ],
+   "callout": "48 distinct logical states"
+  },
+  "views": {
+   "DFA": {
+    "svgW": 746,
+    "transform": "translate(-20.9158878504673,80.62242990654204) scale(0.697196261682243)",
+    "nodes": 48,
+    "visibleNodes": 48,
+    "edges": 48,
+    "labels": 7,
+    "overlappingLabelPairs": 0,
+    "startMarker": false,
+    "title": "48-state agent automaton48 states",
+    "word": null,
+    "tabs": [
+     "Trace & playback",
+     "Definition & semantics",
+     "Transition table",
+     "Counterfactual branch",
+     "Compare models",
+     "Test status (3)"
+    ],
+    "badges": [
+     "48 states"
+    ],
+    "callout": "48 distinct logical states"
+   },
+   "NFA": {
+    "svgW": 746,
+    "transform": "translate(-20.9158878504673,80.62242990654204) scale(0.697196261682243)",
+    "nodes": 48,
+    "visibleNodes": 48,
+    "edges": 89,
+    "labels": 7,
+    "overlappingLabelPairs": 0,
+    "startMarker": false,
+    "title": "48-state agent automaton48 states",
+    "word": null,
+    "tabs": [
+     "Trace & playback",
+     "Definition & semantics",
+     "Transition table",
+     "Counterfactual branch",
+     "Compare models",
+     "Test status (3)"
+    ],
+    "badges": [
+     "48 states"
+    ],
+    "callout": "48 distinct logical states"
+   },
+   "ε-NFA": {
+    "svgW": 746,
+    "transform": "translate(-20.9158878504673,80.62242990654204) scale(0.697196261682243)",
+    "nodes": 48,
+    "visibleNodes": 48,
+    "edges": 89,
+    "labels": 7,
+    "overlappingLabelPairs": 0,
+    "startMarker": false,
+    "title": "48-state agent automaton48 states",
+    "word": null,
+    "tabs": [
+     "Trace & playback",
+     "Definition & semantics",
+     "Transition table",
+     "Counterfactual branch",
+     "Compare models",
+     "Test status (3)"
+    ],
+    "badges": [
+     "48 states"
+    ],
+    "callout": "48 distinct logical states"
+   },
+   "PA": {
+    "svgW": 746,
+    "transform": "translate(-20.9158878504673,80.62242990654204) scale(0.697196261682243)",
+    "nodes": 48,
+    "visibleNodes": 48,
+    "edges": 89,
+    "labels": 7,
+    "overlappingLabelPairs": 0,
+    "startMarker": false,
+    "title": "48-state agent automaton48 states",
+    "word": null,
+    "tabs": [
+     "Trace & playback",
+     "Definition & semantics",
+     "Transition table",
+     "Counterfactual branch",
+     "Compare models",
+     "Test status (3)"
+    ],
+    "badges": [
+     "48 states"
+    ],
+    "callout": "48 distinct logical states"
+   },
+   "LTS": {
+    "svgW": 746,
+    "transform": "translate(-20.9158878504673,80.62242990654204) scale(0.697196261682243)",
+    "nodes": 48,
+    "visibleNodes": 48,
+    "edges": 89,
+    "labels": 7,
+    "overlappingLabelPairs": 0,
+    "startMarker": false,
+    "title": "48-state agent automaton48 states",
+    "word": null,
+    "tabs": [
+     "Trace & playback",
+     "Definition & semantics",
+     "Transition table",
+     "Counterfactual branch",
+     "Compare models",
+     "Test status (3)"
+    ],
+    "badges": [
+     "48 states"
+    ],
+    "callout": "48 distinct logical states"
+   }
+  },
+  "size_64": {
+   "svgW": 746,
+   "transform": "translate(-2.0535331905781504,-6.638115631691676) scale(0.6638115631691649)",
+   "nodes": 64,
+   "visibleNodes": 64,
+   "edges": 121,
+   "labels": 7,
+   "overlappingLabelPairs": 0,
+   "startMarker": false,
+   "title": "48-state agent automaton64 states",
+   "word": null,
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Counterfactual branch",
+    "Compare models",
+    "Test status (3)"
+   ],
+   "badges": [
+    "64 states"
+   ],
+   "callout": "64 distinct logical states"
+  },
+  "size_96": {
+   "svgW": 746,
+   "transform": "translate(118.7910014513788,-4.499274310595069) scale(0.44992743105950656)",
+   "nodes": 96,
+   "visibleNodes": 96,
+   "edges": 185,
+   "labels": 7,
+   "overlappingLabelPairs": 0,
+   "startMarker": false,
+   "title": "48-state agent automaton96 states",
+   "word": null,
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Counterfactual branch",
+    "Compare models",
+    "Test status (3)"
+   ],
+   "badges": [
+    "96 states"
+   ],
+   "callout": "96 distinct logical states"
+  },
+  "size_48": {
+   "svgW": 746,
+   "transform": "translate(-20.9158878504673,80.62242990654204) scale(0.697196261682243)",
+   "nodes": 48,
+   "visibleNodes": 48,
+   "edges": 89,
+   "labels": 7,
+   "overlappingLabelPairs": 0,
+   "startMarker": false,
+   "title": "48-state agent automaton48 states",
+   "word": null,
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Counterfactual branch",
+    "Compare models",
+    "Test status (3)"
+   ],
+   "badges": [
+    "48 states"
+   ],
+   "callout": "48 distinct logical states"
+  },
+  "traceTotal": "step 0/5",
+  "afterTwoSteps": {
+   "hi": 2,
+   "culprit": 1
+  },
+  "branch": {
+   "violetEdges": 2,
+   "selected": "PLAN_START"
+  },
+  "search": {
+   "matchesText": "5 matches",
+   "dimmed": 43
+  },
+  "tab_Definition & semantics": {
+   "text": "Trace & playback\nDefinition & semantics\nTransition table\nCounterfactual branch\nCompare models\nTest status (3)\n𝑀\n=\n(\n𝑄\n,\nΣ\n,\n𝑃\n,\n𝜋\n,\n𝜌\n,\n𝐻\n)\n,\n𝑉\n𝑡\n(\n𝑞\n)\n=\n∑\n𝑎\n𝜋\n(\n𝑎\n∣\n𝑞\n)\n∑\n𝑞\n′\n𝑃\n(\n𝑞\n′\n∣\n𝑞\n,\n𝑎\n)\n𝑉\n𝑡\n+\n1\n(\n𝑞\n′\n)\nM=(Q,Σ,P,π,ρ,H),V\nt\n\t​\n\n(q)=\na\n∑\n\t​\n\nπ(a∣q)\nq\n′\n∑\n\t​\n\nP(q\n′\n∣q,a)V\nt+",
+   "rows": 0,
+   "katex": 1,
+   "katexErr": 0
+  },
+  "tab_Transition table": {
+   "text": "Trace & playback\nDefinition & semantics\nTransition table\nCounterfactual branch\nCompare models\nTest status (3)\nFROM\tLABEL\tTO\tPROBABILITY\nPLAN_START\tstart\tPLAN_PARSE\t0.970\nPLAN_START\tstart\tPLAN_START\t0.030\nPLAN_PARSE\tparse\tPLAN_DECOMP\t0.970\nPLAN_PARSE\tparse\tPLAN_PARSE\t0.030\nPLAN_DECOMP\tdecompose\tPLAN_",
+   "rows": 89,
+   "katex": 0,
+   "katexErr": 0
+  },
+  "tab_Compare models": {
+   "text": "Trace & playback\nDefinition & semantics\nTransition table\nCounterfactual branch\nCompare models\nTest status (3)\nMODEL\tACCEPTANCE\tMEMORY\tNONDETERMINISM\tPROBABILITY\tFIT FOR AGENT TRACES\tLIMITS FOR CAUSAL ATTRIBUTION\nDFA\taccept iff the unique run ends in F\tfinite (state only)\tnone\tnone\tskeleton of an age",
+   "rows": 9,
+   "katex": 0,
+   "katexErr": 0
+  },
+  "tab_Test status": {
+   "text": "Trace & playback\nDefinition & semantics\nTransition table\nCounterfactual branch\nCompare models\nTest status (3)\nmeasured\nfrom results/processed/test_report.json · 2026-10-24 03:09\n✓ agent48_state_count_and_validity\n✓ agent48_views_and_formal_properties\n✓ exact_mu_planted_culprit_is_argmax",
+   "rows": 0,
+   "katex": 0,
+   "katexErr": 0
+  },
+  "nodeDetails": "State details\n\nSelect a state in the graph. Nodes outlined in red are decision points with planted faults.",
+  "zoom": {
+   "before": "translate(-214.5,222.5) scale(1.25)",
+   "after": "translate(-449.5,187.5) scale(1.75)",
+   "afterFit": "translate(-20.9158878504673,80.62242990654204) scale(0.6971962616822429)"
+  }
+ },
+ "dfa": {
+  "initial": {
+   "svgW": 746,
+   "transform": "translate(61,116) scale(1.6)",
+   "nodes": 2,
+   "visibleNodes": 2,
+   "edges": 4,
+   "labels": 4,
+   "overlappingLabelPairs": 0,
+   "startMarker": true,
+   "title": "DFA2 states",
+   "word": "a b a",
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Compare models",
+    "Test status (4)"
+   ],
+   "badges": [
+    "2 states"
+   ],
+   "callout": null
+  },
+  "run": "ok",
+  "afterRun": {
+   "toast": [
+    "Trace computed (3 steps)",
+    "Trace computed (3 steps)"
+   ],
+   "badges": [
+    "2 states",
+    "accepted"
+   ],
+   "stepLabel": "step 0/3",
+   "err": [],
+   "stack": [],
+   "tape": "",
+   "active": [],
+   "note": null
+  },
+  "total": 3,
+  "playback": [
+   {
+    "step": "step 1/3",
+    "highlightedEdges": 1,
+    "current": [
+     "State odd"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 2/3",
+    "highlightedEdges": 2,
+    "current": [
+     "State odd"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 3/3",
+    "highlightedEdges": 3,
+    "current": [
+     "State even"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": ""
+   }
+  ],
+  "rejectWord": "a b b",
+  "afterReject": {
+   "badges": [
+    "2 states",
+    "rejected"
+   ],
+   "err": [],
+   "stepLabel": "step 0/3",
+   "prompt": null
+  },
+  "nodeDetails": "State details\nodd\nodd\nOutgoing (2) · incoming (2)",
+  "zoom": {
+   "before": "translate(61,116) scale(1.6)",
+   "after": "translate(-63.7999999999999,58.400000000000034) scale(2.2399999999999998)",
+   "afterFit": "translate(61,116) scale(1.6)"
+  }
+ },
+ "nfa": {
+  "initial": {
+   "svgW": 746,
+   "transform": "translate(-41.44444444444446,135.66666666666666) scale(1.3814814814814815)",
+   "nodes": 3,
+   "visibleNodes": 3,
+   "edges": 4,
+   "labels": 4,
+   "overlappingLabelPairs": 0,
+   "startMarker": true,
+   "title": "NFA3 states",
+   "word": "a a b",
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Compare models",
+    "Test status (3)"
+   ],
+   "badges": [
+    "3 states"
+   ],
+   "callout": null
+  },
+  "run": "ok",
+  "afterRun": {
+   "toast": [
+    "Trace computed (3 steps)",
+    "Trace computed (3 steps)"
+   ],
+   "badges": [
+    "3 states",
+    "accepted"
+   ],
+   "stepLabel": "step 0/3",
+   "err": [],
+   "stack": [],
+   "tape": "",
+   "active": [],
+   "note": "accepted iff the active-state set contains an accepting state"
+  },
+  "total": 3,
+  "playback": [
+   {
+    "step": "step 1/3",
+    "highlightedEdges": 2,
+    "current": [
+     "State q1"
+    ],
+    "activeSet": [
+     "State q0",
+     "State q1"
+    ],
+    "stack": "",
+    "tape": "",
+    "outputs": "q0 q1"
+   },
+   {
+    "step": "step 2/3",
+    "highlightedEdges": 2,
+    "current": [
+     "State q1"
+    ],
+    "activeSet": [
+     "State q0",
+     "State q1"
+    ],
+    "stack": "",
+    "tape": "",
+    "outputs": "q0 q1"
+   },
+   {
+    "step": "step 3/3",
+    "highlightedEdges": 4,
+    "current": [
+     "State q2"
+    ],
+    "activeSet": [
+     "State q2",
+     "State q0"
+    ],
+    "stack": "",
+    "tape": "",
+    "outputs": "q0 q2"
+   }
+  ],
+  "rejectWord": "a b a",
+  "afterReject": {
+   "badges": [
+    "3 states",
+    "rejected"
+   ],
+   "err": [],
+   "stepLabel": "step 0/3",
+   "prompt": "accepted iff the active-state set contains an accepting state"
+  },
+  "nodeDetails": "State details\nq2\nq2\naccepting\nOutgoing (0) · incoming (1)",
+  "zoom": {
+   "before": "translate(-41.44444444444446,135.66666666666666) scale(1.3814814814814815)",
+   "after": "translate(-207.22222222222217,85.93333333333334) scale(1.934074074074074)",
+   "afterFit": "translate(-41.44444444444446,135.66666666666666) scale(1.3814814814814815)"
+  }
+ },
+ "enfa": {
+  "initial": {
+   "svgW": 746,
+   "transform": "translate(-29.840000000000032,170.48000000000002) scale(0.9946666666666667)",
+   "nodes": 4,
+   "visibleNodes": 4,
+   "edges": 4,
+   "labels": 4,
+   "overlappingLabelPairs": 0,
+   "startMarker": true,
+   "title": "ε-NFA4 states",
+   "word": "a b",
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Compare models",
+    "Test status (1)"
+   ],
+   "badges": [
+    "4 states"
+   ],
+   "callout": null
+  },
+  "run": "ok",
+  "afterRun": {
+   "toast": [
+    "Trace computed (2 steps)",
+    "Trace computed (2 steps)"
+   ],
+   "badges": [
+    "4 states",
+    "accepted"
+   ],
+   "stepLabel": "step 0/2",
+   "err": [],
+   "stack": [],
+   "tape": "",
+   "active": [
+    "q0"
+   ],
+   "note": "accepted iff the active-state set contains an accepting state"
+  },
+  "total": 2,
+  "playback": [
+   {
+    "step": "step 1/2",
+    "highlightedEdges": 2,
+    "current": [
+     "State q1"
+    ],
+    "activeSet": [
+     "State q2",
+     "State q1"
+    ],
+    "stack": "",
+    "tape": "",
+    "outputs": "q1 q2 q0"
+   },
+   {
+    "step": "step 2/2",
+    "highlightedEdges": 4,
+    "current": [
+     "State q3"
+    ],
+    "activeSet": [
+     "State q3"
+    ],
+    "stack": "",
+    "tape": "",
+    "outputs": "q3 q0"
+   }
+  ],
+  "rejectWord": "b b",
+  "afterReject": {
+   "badges": [
+    "4 states",
+    "rejected"
+   ],
+   "err": [],
+   "stepLabel": "step 0/2",
+   "prompt": "accepted iff the active-state set contains an accepting state"
+  },
+  "nodeDetails": "State details\nq2\nq2\nOutgoing (1) · incoming (1)",
+  "zoom": {
+   "before": "translate(-29.840000000000032,170.48000000000002) scale(0.9946666666666667)",
+   "after": "translate(-190.9760000000001,134.67200000000003) scale(1.3925333333333334)",
+   "afterFit": "translate(-29.840000000000032,170.48000000000002) scale(0.9946666666666667)"
+  }
+ },
+ "pa": {
+  "initial": {
+   "svgW": 746,
+   "transform": "translate(61,20) scale(1.6)",
+   "nodes": 3,
+   "visibleNodes": 3,
+   "edges": 5,
+   "labels": 5,
+   "overlappingLabelPairs": 0,
+   "startMarker": true,
+   "title": "Probabilistic automaton3 states",
+   "word": "go go go",
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Compare models",
+    "Test status (1)"
+   ],
+   "badges": [
+    "3 states"
+   ],
+   "callout": null
+  },
+  "run": "ok",
+  "afterRun": {
+   "toast": [
+    "Trace computed (3 steps)",
+    "Trace computed (3 steps)"
+   ],
+   "badges": [
+    "3 states",
+    "accepted",
+    "exact P(accept) = 0.8680",
+    "Monte-Carlo 0.875 [0.860, 0.889] n=2000"
+   ],
+   "stepLabel": "step 0/3",
+   "err": [],
+   "stack": [],
+   "tape": "",
+   "active": [],
+   "note": null
+  },
+  "total": 3,
+  "playback": [
+   {
+    "step": "step 1/3",
+    "highlightedEdges": 1,
+    "current": [
+     "State t"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 2/3",
+    "highlightedEdges": 2,
+    "current": [
+     "State t"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 3/3",
+    "highlightedEdges": 2,
+    "current": [
+     "State t"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": ""
+   }
+  ],
+  "rejectWord": "go",
+  "afterReject": {
+   "badges": [
+    "3 states",
+    "accepted",
+    "exact P(accept) = 0.7000",
+    "Monte-Carlo 0.705 [0.685, 0.725] n=2000"
+   ],
+   "err": [],
+   "stepLabel": "step 0/1",
+   "prompt": null
+  },
+  "nodeDetails": "State details\nf\nf\nOutgoing (1) · incoming (2)",
+  "zoom": {
+   "before": "translate(61,20) scale(1.6)",
+   "after": "translate(-63.7999999999999,-75.99999999999994) scale(2.2399999999999998)",
+   "afterFit": "translate(61,20) scale(1.6)"
+  }
+ },
+ "lts": {
+  "initial": {
+   "svgW": 746,
+   "transform": "translate(-29.840000000000032,110.79999999999998) scale(0.9946666666666667)",
+   "nodes": 5,
+   "visibleNodes": 5,
+   "edges": 6,
+   "labels": 6,
+   "overlappingLabelPairs": 0,
+   "startMarker": true,
+   "title": "Labelled transition system5 states",
+   "word": "plan call_tool observe_ok answer",
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Compare models",
+    "Test status (2)"
+   ],
+   "badges": [
+    "5 states"
+   ],
+   "callout": null
+  },
+  "run": "ok",
+  "afterRun": {
+   "toast": [
+    "Trace computed (4 steps)",
+    "Trace computed (4 steps)"
+   ],
+   "badges": [
+    "5 states",
+    "accepted"
+   ],
+   "stepLabel": "step 0/4",
+   "err": [],
+   "stack": [],
+   "tape": "",
+   "active": [],
+   "note": null
+  },
+  "total": 4,
+  "playback": [
+   {
+    "step": "step 1/4",
+    "highlightedEdges": 1,
+    "current": [
+     "State thinking"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 2/4",
+    "highlightedEdges": 2,
+    "current": [
+     "State calling"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 3/4",
+    "highlightedEdges": 3,
+    "current": [
+     "State thinking"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 4/4",
+    "highlightedEdges": 4,
+    "current": [
+     "State done"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": ""
+   }
+  ],
+  "rejectWord": "plan answer plan",
+  "afterReject": {
+   "badges": [
+    "5 states",
+    "rejected"
+   ],
+   "err": [],
+   "stepLabel": "step 0/3",
+   "prompt": null
+  },
+  "nodeDetails": "State details\ncalling\ncalling\nOutgoing (2) · incoming (1)",
+  "zoom": {
+   "before": "translate(-29.840000000000032,110.79999999999998) scale(0.9946666666666667)",
+   "after": "translate(-190.9760000000001,51.11999999999995) scale(1.3925333333333334)",
+   "afterFit": "translate(-29.840000000000032,110.79999999999998) scale(0.9946666666666667)"
+  }
+ },
+ "mealy": {
+  "initial": {
+   "svgW": 746,
+   "transform": "translate(-41.44444444444446,135.66666666666666) scale(1.3814814814814815)",
+   "nodes": 3,
+   "visibleNodes": 3,
+   "edges": 12,
+   "labels": 12,
+   "overlappingLabelPairs": 0,
+   "startMarker": true,
+   "title": "Mealy machine3 states",
+   "word": "task error ok",
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Compare models",
+    "Test status (1)"
+   ],
+   "badges": [
+    "3 states"
+   ],
+   "callout": null
+  },
+  "run": "ok",
+  "afterRun": {
+   "toast": [
+    "Trace computed (3 steps)",
+    "Trace computed (3 steps)"
+   ],
+   "badges": [
+    "3 states",
+    "accepted"
+   ],
+   "stepLabel": "step 0/3",
+   "err": [],
+   "stack": [],
+   "tape": "",
+   "active": [],
+   "note": "transducer: no acceptance, see outputs"
+  },
+  "total": 3,
+  "playback": [
+   {
+    "step": "step 1/3",
+    "highlightedEdges": 1,
+    "current": [
+     "State calling"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": "call_tool"
+   },
+   {
+    "step": "step 2/3",
+    "highlightedEdges": 2,
+    "current": [
+     "State retrying"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": "call_tool retry"
+   },
+   {
+    "step": "step 3/3",
+    "highlightedEdges": 3,
+    "current": [
+     "State idle"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": "call_tool retry proceed"
+   }
+  ],
+  "rejectWord": "task bogus",
+  "afterReject": {
+   "badges": [
+    "3 states"
+   ],
+   "err": [
+    "symbol 'bogus' is not in the alphabet ['error', 'ok', 'task', 'timeout']"
+   ],
+   "stepLabel": null,
+   "prompt": null
+  },
+  "nodeDetails": "State details\ncalling\ncalling\nOutgoing (4) · incoming (3)",
+  "zoom": {
+   "before": "translate(-41.44444444444446,135.66666666666666) scale(1.3814814814814815)",
+   "after": "translate(-207.22222222222217,85.93333333333334) scale(1.934074074074074)",
+   "afterFit": "translate(-41.44444444444446,135.66666666666666) scale(1.3814814814814815)"
+  }
+ },
+ "moore": {
+  "initial": {
+   "svgW": 746,
+   "transform": "translate(-29.840000000000032,51.120000000000005) scale(0.9946666666666667)",
+   "nodes": 7,
+   "visibleNodes": 7,
+   "edges": 28,
+   "labels": 28,
+   "overlappingLabelPairs": 11,
+   "startMarker": true,
+   "title": "Moore machine7 states",
+   "word": "task error ok",
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Compare models",
+    "Test status (1)"
+   ],
+   "badges": [
+    "7 states"
+   ],
+   "callout": null
+  },
+  "run": "ok",
+  "afterRun": {
+   "toast": [
+    "Trace computed (3 steps)",
+    "Trace computed (3 steps)"
+   ],
+   "badges": [
+    "7 states",
+    "accepted"
+   ],
+   "stepLabel": "step 0/3",
+   "err": [],
+   "stack": [],
+   "tape": "",
+   "active": [
+    "start"
+   ],
+   "note": "outputs are attached to states; n+1 outputs for n inputs"
+  },
+  "total": 3,
+  "playback": [
+   {
+    "step": "step 1/3",
+    "highlightedEdges": 1,
+    "current": [
+     "State calling/call_tool"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": "start call_tool"
+   },
+   {
+    "step": "step 2/3",
+    "highlightedEdges": 2,
+    "current": [
+     "State retrying/retry"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": "start call_tool retry"
+   },
+   {
+    "step": "step 3/3",
+    "highlightedEdges": 3,
+    "current": [
+     "State idle/proceed"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": "start call_tool retry proceed"
+   }
+  ],
+  "rejectWord": "ok ok",
+  "afterReject": {
+   "badges": [
+    "7 states",
+    "accepted"
+   ],
+   "err": [],
+   "stepLabel": "step 0/2",
+   "prompt": "outputs are attached to states; n+1 outputs for n inputs"
+  },
+  "nodeDetails": "State details\ncalling/call_tool\ncalling/call_tool\nOutput: call_tool\nOutgoing (4) · incoming (5)",
+  "zoom": {
+   "before": "translate(-29.840000000000032,51.120000000000005) scale(0.9946666666666667)",
+   "after": "translate(-190.9760000000001,-32.432000000000016) scale(1.3925333333333334)",
+   "afterFit": "translate(-29.840000000000032,51.120000000000005) scale(0.9946666666666667)"
+  }
+ },
+ "pda": {
+  "initial": {
+   "svgW": 746,
+   "transform": "translate(61,116) scale(1.6)",
+   "nodes": 2,
+   "visibleNodes": 2,
+   "edges": 3,
+   "labels": 3,
+   "overlappingLabelPairs": 0,
+   "startMarker": true,
+   "title": "Pushdown automaton2 states",
+   "word": "call call ret ret",
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Compare models",
+    "Test status (1)"
+   ],
+   "badges": [
+    "2 states"
+   ],
+   "callout": null
+  },
+  "run": "ok",
+  "afterRun": {
+   "toast": [
+    "Trace computed (5 steps)",
+    "Trace computed (5 steps)"
+   ],
+   "badges": [
+    "2 states",
+    "accepted"
+   ],
+   "stepLabel": "step 0/5",
+   "err": [],
+   "stack": [
+    "Z"
+   ],
+   "tape": "",
+   "active": [],
+   "note": "accepted"
+  },
+  "total": 5,
+  "playback": [
+   {
+    "step": "step 1/5",
+    "highlightedEdges": 2,
+    "current": [
+     "State q"
+    ],
+    "activeSet": [],
+    "stack": "Z,C",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 2/5",
+    "highlightedEdges": 2,
+    "current": [
+     "State q"
+    ],
+    "activeSet": [],
+    "stack": "Z,C,C",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 3/5",
+    "highlightedEdges": 2,
+    "current": [
+     "State q"
+    ],
+    "activeSet": [],
+    "stack": "Z,C",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 4/5",
+    "highlightedEdges": 2,
+    "current": [
+     "State q"
+    ],
+    "activeSet": [],
+    "stack": "Z",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 5/5",
+    "highlightedEdges": 3,
+    "current": [
+     "State acc"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": ""
+   }
+  ],
+  "rejectWord": "call ret ret",
+  "afterReject": {
+   "badges": [
+    "2 states",
+    "rejected"
+   ],
+   "err": [],
+   "stepLabel": null,
+   "prompt": "Press Run trace to execute the model on the word above and animate the run on the graph."
+  },
+  "nodeDetails": "State details\nacc\nacc\naccepting\nOutgoing (0) · incoming (1)",
+  "zoom": {
+   "before": "translate(61,116) scale(1.6)",
+   "after": "translate(-63.7999999999999,58.400000000000034) scale(2.2399999999999998)",
+   "afterFit": "translate(61,116) scale(1.6)"
+  }
+ },
+ "pda_typed": {
+  "initial": {
+   "svgW": 746,
+   "transform": "translate(61,116) scale(1.6)",
+   "nodes": 2,
+   "visibleNodes": 2,
+   "edges": 5,
+   "labels": 5,
+   "overlappingLabelPairs": 0,
+   "startMarker": true,
+   "title": "PDA (typed tools)2 states",
+   "word": "open_search open_calc end_calc end_search",
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Compare models",
+    "Test status (1)"
+   ],
+   "badges": [
+    "2 states"
+   ],
+   "callout": null
+  },
+  "run": "ok",
+  "afterRun": {
+   "toast": [
+    "Trace computed (5 steps)",
+    "Trace computed (5 steps)"
+   ],
+   "badges": [
+    "2 states",
+    "accepted"
+   ],
+   "stepLabel": "step 0/5",
+   "err": [],
+   "stack": [
+    "Z"
+   ],
+   "tape": "",
+   "active": [],
+   "note": "accepted"
+  },
+  "total": 5,
+  "playback": [
+   {
+    "step": "step 1/5",
+    "highlightedEdges": 4,
+    "current": [
+     "State q"
+    ],
+    "activeSet": [],
+    "stack": "Z,S",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 2/5",
+    "highlightedEdges": 4,
+    "current": [
+     "State q"
+    ],
+    "activeSet": [],
+    "stack": "Z,S,K",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 3/5",
+    "highlightedEdges": 4,
+    "current": [
+     "State q"
+    ],
+    "activeSet": [],
+    "stack": "Z,S",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 4/5",
+    "highlightedEdges": 4,
+    "current": [
+     "State q"
+    ],
+    "activeSet": [],
+    "stack": "Z",
+    "tape": "",
+    "outputs": ""
+   },
+   {
+    "step": "step 5/5",
+    "highlightedEdges": 5,
+    "current": [
+     "State acc"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "",
+    "outputs": ""
+   }
+  ],
+  "rejectWord": "open_search end_calc",
+  "afterReject": {
+   "badges": [
+    "2 states",
+    "rejected"
+   ],
+   "err": [],
+   "stepLabel": null,
+   "prompt": "Press Run trace to execute the model on the word above and animate the run on the graph."
+  },
+  "nodeDetails": "State details\nacc\nacc\naccepting\nOutgoing (0) · incoming (1)",
+  "zoom": {
+   "before": "translate(61,116) scale(1.6)",
+   "after": "translate(-63.7999999999999,58.400000000000034) scale(2.2399999999999998)",
+   "afterFit": "translate(61,116) scale(1.6)"
+  }
+ },
+ "tm": {
+  "initial": {
+   "svgW": 746,
+   "transform": "translate(-23.3125,190.0625) scale(0.7770833333333333)",
+   "nodes": 5,
+   "visibleNodes": 5,
+   "edges": 9,
+   "labels": 9,
+   "overlappingLabelPairs": 0,
+   "startMarker": true,
+   "title": "Turing machine (bounded)5 states",
+   "word": "1011",
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Compare models",
+    "Test status (1)"
+   ],
+   "badges": [
+    "5 states"
+   ],
+   "callout": null
+  },
+  "run": "ok",
+  "afterRun": {
+   "toast": [
+    "Trace computed (undefined steps)",
+    "Trace computed (undefined steps)"
+   ],
+   "badges": [
+    "5 states",
+    "accepted",
+    "accept",
+    "output “1100”"
+   ],
+   "stepLabel": "step 0/9",
+   "err": [],
+   "stack": [],
+   "tape": "␣␣1011␣␣␣",
+   "active": [],
+   "note": null
+  },
+  "total": 9,
+  "playback": [
+   {
+    "step": "step 1/9",
+    "highlightedEdges": 2,
+    "current": [
+     "State scan"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣1011␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 2/9",
+    "highlightedEdges": 2,
+    "current": [
+     "State scan"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "1011␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 3/9",
+    "highlightedEdges": 2,
+    "current": [
+     "State scan"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "1011␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 4/9",
+    "highlightedEdges": 2,
+    "current": [
+     "State scan"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "1011␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 5/9",
+    "highlightedEdges": 3,
+    "current": [
+     "State carry"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "1011␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 6/9",
+    "highlightedEdges": 4,
+    "current": [
+     "State carry"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "1010␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 7/9",
+    "highlightedEdges": 4,
+    "current": [
+     "State carry"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣1000␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 8/9",
+    "highlightedEdges": 6,
+    "current": [
+     "State done"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣1100␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 9/9",
+    "highlightedEdges": 9,
+    "current": [
+     "State acc"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣1100␣␣␣",
+    "outputs": ""
+   }
+  ],
+  "rejectWord": "12",
+  "afterReject": {
+   "badges": [
+    "5 states"
+   ],
+   "err": [
+    "input symbol '2' not in Σ"
+   ],
+   "stepLabel": null,
+   "prompt": null
+  },
+  "nodeDetails": "State details\nacc\nacc\naccepting\nOutgoing (0) · incoming (3)",
+  "zoom": {
+   "before": "translate(-23.3125,190.0625) scale(0.7770833333333333)",
+   "after": "translate(-181.83749999999998,162.0875) scale(1.0879166666666666)",
+   "afterFit": "translate(-23.3125,190.0625) scale(0.7770833333333333)"
+  }
+ },
+ "tm_pal": {
+  "initial": {
+   "svgW": 746,
+   "transform": "translate(-23.3125,96.8125) scale(0.7770833333333333)",
+   "nodes": 10,
+   "visibleNodes": 10,
+   "edges": 24,
+   "labels": 24,
+   "overlappingLabelPairs": 2,
+   "startMarker": true,
+   "title": "Turing machine (palindromes)10 states",
+   "word": "abba",
+   "tabs": [
+    "Trace & playback",
+    "Definition & semantics",
+    "Transition table",
+    "Compare models",
+    "Test status (1)"
+   ],
+   "badges": [
+    "10 states"
+   ],
+   "callout": null
+  },
+  "run": "ok",
+  "afterRun": {
+   "toast": [
+    "Trace computed (undefined steps)",
+    "Trace computed (undefined steps)"
+   ],
+   "badges": [
+    "10 states",
+    "accepted",
+    "accept",
+    "output “”"
+   ],
+   "stepLabel": "step 0/15",
+   "err": [],
+   "stack": [],
+   "tape": "␣␣abba␣␣␣",
+   "active": [],
+   "note": null
+  },
+  "total": 15,
+  "playback": [
+   {
+    "step": "step 1/15",
+    "highlightedEdges": 1,
+    "current": [
+     "State has_a"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣␣bba␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 2/15",
+    "highlightedEdges": 3,
+    "current": [
+     "State go_a"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣bba␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 3/15",
+    "highlightedEdges": 5,
+    "current": [
+     "State go_a"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣bba␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 4/15",
+    "highlightedEdges": 5,
+    "current": [
+     "State go_a"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣bba␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 5/15",
+    "highlightedEdges": 6,
+    "current": [
+     "State end_a"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣bba␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 6/15",
+    "highlightedEdges": 7,
+    "current": [
+     "State back"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣bb␣␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 7/15",
+    "highlightedEdges": 9,
+    "current": [
+     "State back"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣␣bb␣␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 8/15",
+    "highlightedEdges": 9,
+    "current": [
+     "State back"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣␣␣bb␣␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 9/15",
+    "highlightedEdges": 10,
+    "current": [
+     "State q0"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣␣bb␣␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 10/15",
+    "highlightedEdges": 11,
+    "current": [
+     "State has_b"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣␣b␣␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 11/15",
+    "highlightedEdges": 13,
+    "current": [
+     "State go_b"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣␣b␣␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 12/15",
+    "highlightedEdges": 14,
+    "current": [
+     "State end_b"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣␣b␣␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 13/15",
+    "highlightedEdges": 15,
+    "current": [
+     "State back"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣␣␣␣␣␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 14/15",
+    "highlightedEdges": 15,
+    "current": [
+     "State q0"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣␣␣␣␣␣␣",
+    "outputs": ""
+   },
+   {
+    "step": "step 15/15",
+    "highlightedEdges": 16,
+    "current": [
+     "State acc"
+    ],
+    "activeSet": [],
+    "stack": "",
+    "tape": "␣␣␣␣␣␣␣",
+    "outputs": ""
+   }
+  ],
+  "rejectWord": "ab",
+  "afterReject": {
+   "badges": [
+    "10 states",
+    "rejected",
+    "reject",
+    "output “”"
+   ],
+   "err": [],
+   "stepLabel": "step 0/4",
+   "prompt": null
+  },
+  "nodeDetails": "State details\nacc\nacc\naccepting\nOutgoing (0) · incoming (5)",
+  "zoom": {
+   "before": "translate(-23.3125,96.8125) scale(0.7770833333333333)",
+   "after": "translate(-181.83749999999998,31.537500000000023) scale(1.0879166666666666)",
+   "afterFit": "translate(-23.3125,96.8125) scale(0.7770833333333333)"
+  }
+ },
+ "exceptions": [],
+ "consoleErrors": [
+  "Failed to load resource: the server responded with a status of 422 (Unprocessable Content) http://localhost:8000/api/automata/trace"
+ ],
+ "network": [
+  {
+   "url": "/api/automata/trace",
+   "status": 422,
+   "page": "/lab?model=mealy"
+  },
+  {
+   "url": "/api/automata/trace",
+   "status": 422,
+   "page": "/lab?model=tm"
+  }
+ ]
+}

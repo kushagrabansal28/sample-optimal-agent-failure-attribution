@@ -1,0 +1,277 @@
+{
+ "explorer_loaded": {
+  "steps": 5,
+  "sel": "PLAN_SUBGOAL",
+  "chart": true,
+  "seq": "PLAN_START>PLAN_PARSE>PLAN_DECOMP>PLAN_SUBGOAL>PLAN_SUBGOAL_WRONG"
+ },
+ "explorer_stale": {
+  "lastReq": {
+   "u": "/api/replay",
+   "body": {
+    "source": "automaton",
+    "seed": 11,
+    "eps_plan": 0.6,
+    "intervention": "repair",
+    "deterministic": false,
+    "arm": 3,
+    "replay_seed": 0
+   }
+  },
+  "shownTrajectory": "PLAN_START>PLAN_PARSE>PLAN_DECOMP>PLAN_SUBGOAL>PLAN_SUBGOAL_WRONG",
+  "replayOriginal": "PLAN_START>PLAN_DECOMP>PLAN_TOOLS>OBS_QUERY>OBS_RESULTS>OBS_READ>TOOL_INVALID>REASON_FLAWED>VAL_CHECK_FLAWED>VAL_REPLAN>PLAN_SUBGOAL_WRONG>OBS_MISREAD>MEM_CORRUPT",
+  "err": []
+ },
+ "explorer_estimate": "Estimate from 300 replays\nsynthetic\n0\n0.25\n0.5\n0.75\n1\nbaseline 0.46\nμ̂ = 0.607 · 95 % Wilson [0.550, 0.660] · exact μ = 0.620\nEffect vs baseline: Δ̂ = +0.145 (CI [0.089, 0.199])\n\nfixed-n Wilson interval for a single pre-specified sample size (not an anytime-valid bound)",
+ "explorer_tool": {
+  "steps": 8,
+  "err": []
+ },
+ "dash_invalid_delta_ui": {
+  "fieldError": "Must be > 0",
+  "runDisabled": false
+ },
+ "dash_invalid_delta_sent": 0.1,
+ "dash_target_set": "ok",
+ "dash_last_above": {
+  "kpis": "Outcome\nculprit certified\nanswer: t=4: PLAN_SUBGOAL matches exact argmax\nRollouts\n1406\n24,684 simulated steps · budget 20,000\nShared observations\n0\nsharing off\nδ-guarantee\napplies\nδ-correct under assumptions A1–A6 (paper Thm 1)",
+  "stopping": "Stopping rule\nstop when every step is certified above/below \n𝜃\nstop when every step is certified above/below θ\nbest t=1: lo = 0.005 · strongest challenger t=2: hi = 1.000\nseparation margin loh + ε − hiℓ\n-0.995\nnegative margin: intervals still overlap\nbudget used\n7%",
+  "suggestedLabel": "pulled [\"t=4\"] → outcomes [1] · LUCB would pull next [\"t=4\"]"
+ },
+ "dash_budget_used_before_after_edit": {
+  "before": "30%",
+  "after": "6%",
+  "rolloutsSub": "Rollouts\n6089\n113,532 simulated steps · budget 100,000"
+ },
+ "dash_compare": "Compare with uniform allocation\nRun uniform on this instance\nLUCB (identified)\n6,089\nUniform (same stop) (identified)\n5,829\n\nNo saving on this instance. One instance is an anecdote; see the Experiment studio for distributions.",
+ "dash_export_buttons": [],
+ "dash_stop_cancel": [],
+ "dash_playback": "round 600 · 1,201 rollouts so far",
+ "dash_uniform_label": "pulled [\"step 8\"] → outcomes [1] · LUCB would pull next [\"step 8\",\"step 1\"]",
+ "studio_groups": {
+  "Main comparison": {
+   "bars": 24,
+   "lines": 0,
+   "emptyCharts": 0,
+   "wrappers": 4,
+   "err": [],
+   "rowsText": "n the bandit-arm model. (990 trials in results/raw/main.csv)"
+  },
+  "Gap sweep (bandit, K=8)": {
+   "bars": 0,
+   "lines": 7,
+   "emptyCharts": 0,
+   "wrappers": 2,
+   "err": [],
+   "rowsText": "fmann lower bound. (450 trials in results/raw/gap_sweep.csv)"
+  },
+  "Number of candidates": {
+   "bars": 0,
+   "lines": 7,
+   "emptyCharts": 0,
+   "wrappers": 2,
+   "err": [],
+   "rowsText": " (gap fixed at 0.2). (450 trials in results/raw/K_sweep.csv)"
+  },
+  "Confidence parameter δ": {
+   "bars": 0,
+   "lines": 2,
+   "emptyCharts": 0,
+   "wrappers": 2,
+   "err": [],
+   "rowsText": "als as δ varies. (300 trials in results/raw/delta_sweep.csv)"
+  },
+  "Guarantee stress test": {
+   "bars": 0,
+   "lines": 2,
+   "emptyCharts": 0,
+   "wrappers": 2,
+   "err": [],
+   "rowsText": " empirical error ≤ δ? (900 trials in results/raw/stress.csv)"
+  },
+  "Automaton size": {
+   "bars": 0,
+   "lines": 6,
+   "emptyCharts": 0,
+   "wrappers": 2,
+   "err": [],
+   "rowsText": "less candidates). (270 trials in results/raw/size_sweep.csv)"
+  },
+  "Planted-fault probability": {
+   "bars": 0,
+   "lines": 6,
+   "emptyCharts": 0,
+   "wrappers": 2,
+   "err": [],
+   "rowsText": "a harder instance. (360 trials in results/raw/eps_sweep.csv)"
+  },
+  "State-reconstruction noise (assumption A1 violated)": {
+   "bars": 0,
+   "lines": 2,
+   "emptyCharts": 0,
+   "wrappers": 2,
+   "err": [],
+   "rowsText": "d automatically. (120 trials in results/raw/noise_sweep.csv)"
+  },
+  "Ablations": {
+   "bars": 30,
+   "lines": 0,
+   "emptyCharts": 0,
+   "wrappers": 10,
+   "err": [],
+   "rowsText": "e set, tolerance ε. (450 trials in results/raw/ablation.csv)"
+  },
+  "Accuracy vs rollout budget": {
+   "bars": 0,
+   "lines": 4,
+   "emptyCharts": 0,
+   "wrappers": 1,
+   "err": [],
+   "rowsText": "get is marked. (1920 trials in results/raw/budget_curve.csv)"
+  },
+  "Stage B: tool-using agent": {
+   "bars": 0,
+   "lines": 0,
+   "emptyCharts": 0,
+   "wrappers": 0,
+   "err": [],
+   "rowsText": "ministic variants. (158 trials in results/raw/toolagent.csv)"
+  },
+  "Targets: threshold rules vs the CAR-style fixed-K rule": {
+   "bars": 0,
+   "lines": 0,
+   "emptyCharts": 0,
+   "wrappers": 0,
+   "err": [],
+   "rowsText": "text, not its code). (150 trials in results/raw/targets.csv)"
+  }
+ },
+ "studio_live": {
+  "rowsReq": {
+   "source": "bandit",
+   "algorithms": [
+    "lucb",
+    "uniform_fc",
+    "successive_elim"
+   ],
+   "trials": 3,
+   "K": 8,
+   "gap": 0.2,
+   "delta": 0.1,
+   "budget": 20000,
+   "seed": 0
+  },
+  "bars": 6,
+  "scatter": 9,
+  "exportCsv": true,
+  "exportJson": true,
+  "heat": 1,
+  "err": []
+ },
+ "studio_live_automaton_fields": [
+  "Instance family",
+  "Trials per algorithm",
+  "Confidence δ",
+  "Rollout budget",
+  "Base seed"
+ ],
+ "studio_paired": "COMPARISON\tPAIRS\tRATIO OF MEANS\tMEAN DIFF [95% CI]\tP (WILCOXON)\tP (HOLM)\tSIGNIFICANT @ 0.05\nUniform (same stop) vs LUCB\t30\t1.79×\t16,293 [11,060, 22,096]\t<0.001\t<0.001\tyes\nRandom (same stop) vs LUCB\t30\t1.84×\t17,275 [11,536, 23,887]\t<0.001\t<0.001\tyes\nSuccessive elimination vs LUCB\t30\t1.19×\t3,891 [1,908, 6,404]\t<0.001\t<0.001\tyes\nLUCB vs LUCB + prefix reuse\t30\t1.42×\t6,106 [4,185, 8,177]\t<0.001\t<0.001\tyes",
+ "docs_attribute_ranges": [
+  "source | string | \"automaton\" | —",
+  "seed | integer | 0 | —",
+  "n_states | integer | 48 | ≥ 48, ≤ 200",
+  "eps_plan | number | 0.6 | < 1",
+  "gap | number | 0.2 | > 0, < 0.7",
+  "K | integer | 8 | ≥ 2, ≤ 60",
+  "algorithm | string | \"lucb\" | —",
+  "target | string | \"argmax\" | —",
+  "eps | number | 0 | ≤ 0.5",
+  "theta | number | 0.5 | ≤ 1",
+  "delta | number | 0.1 | > 0, < 1",
+  "budget | integer | 20000 | ≥ 1, ≤ 300000",
+  "share | string | \"none\" | —",
+  "confidence | string | \"stack_kl\" | —",
+  "intervention | string | \"repair\" | —",
+  "candidates | string | \"all\" | —",
+  "reconstruct_noise | number | 0 | ≤ 1",
+  "deterministic | boolean | false | —",
+  "history | boolean | true | —"
+ ],
+ "docs_internal_links": [
+  "/openapi.json",
+  "/api/docs",
+  "/theory",
+  "/reproducibility"
+ ],
+ "docs_search_abstention": [
+  "Input–output specification",
+  "Automata and statistics glossary"
+ ],
+ "docs_search_LUCB": [],
+ "repro_commands": "# from the project folder\npython -m venv .venv\n.\\.venv\\Scripts\\Activate.ps1\npip install -e \".[dev,docs]\"\ncd website; npm install; npm run build; cd ..\nuvicorn afcr.api.app:app --port 8000      # website + API at http://localhost:8000\n---\npython -m pytest                                   # backend: unit + statistical tests (slow ones included)\ncd website && npm test                              # frontend tests (vitest)\npython scripts/run_tests_report.py                  # writes results/processed/test_report.json (shown on this site)\nOPENBLAS_NUM_THREADS=1 python -m afcr.experiments.suite --trials 30 --workers 6      # all synthetic experiment groups\npython -m afcr.experiments.suite --groups main,budget_curve --trials 10              # a subset\npython scripts/make_figures.py                      # 18 figures + manifest, from real objects / result files\npython scripts/build_docs.py                        # paper, report, status (numbers read from results/)\npython scripts/build_deck.py                        # presentation/research_presentation.pptx\npython scripts/build_pdfs.py                        # PDF exports of paper and report\n---\n{\n  \"kind\": \"automaton\", \"n_states\": 48, \"eps_plan\": 0.6,       // instance family and planted-fault probability\n  \"method\": \"lucb_prefix\",                                      // lucb | lucb_prefix | successive_elim | uniform_fc | random_fc | ...\n  \"delta\": 0.1, \"budget\": 60000, \"eps\": 0.0,                    // confidence, rollout cap, argmax tolerance\n  \"target\": \"argmax\", \"conf\": \"stack_kl\",                       // or first_above / last_above with \"theta\"\n  \"intervention\": \"repair\", \"recon_noise\": 0.0, \"seed\": 20000   // instance seed; algorithm RNG uses seed + 7\n}\n---\n# .env (see .env.example) — optional, unused in synthetic mode\nOPENAI_API_KEY=\nOPENAI_BASE_URL=",
+ "repro_links": [
+  [
+   "/files/paper/main.md",
+   "200 text/markdown; charset=utf-8"
+  ],
+  [
+   "/files/report/technical_report.md",
+   "200 text/markdown; charset=utf-8"
+  ],
+  [
+   "/files/report/experiments.md",
+   "200 text/markdown; charset=utf-8"
+  ],
+  [
+   "/files/presentation/research_presentation.pptx",
+   "200 application/vnd.openxmlformats-officedocument.presentationml.presentation"
+  ],
+  [
+   "/files/research/related_work.md",
+   "200 text/markdown; charset=utf-8"
+  ],
+  [
+   "/files/research/novelty_matrix.csv",
+   "200 application/vnd.ms-excel"
+  ],
+  [
+   "/files/research/related_work.csv",
+   "200 application/vnd.ms-excel"
+  ],
+  [
+   "/files/RESEARCH_STATUS.md",
+   "200 text/markdown; charset=utf-8"
+  ],
+  [
+   "/files/DELIVERY_SUMMARY.md",
+   "200 text/markdown; charset=utf-8"
+  ]
+ ],
+ "repro_fig_imgs": {
+  "n": 21
+ },
+ "related": {
+  "rows": 21,
+  "timelinePts": 20,
+  "records": 14
+ },
+ "related_filter_car": [],
+ "related_filter_car_bandit": [],
+ "overview_links": [
+  "/dashboard Run an attribution",
+  "/lab Explore the 48-state automaton",
+  "/theory Read the guarantees"
+ ],
+ "overview_tabs": [
+  "1 · Title",
+  "2 · Research gap",
+  "3 · Problem",
+  "4 · Methods",
+  "5 · Input",
+  "6 · Output",
+  "7 · Steps"
+ ],
+ "exceptions": [],
+ "consoleErrors": [],
+ "network": []
+}

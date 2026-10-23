@@ -1,0 +1,10 @@
+{
+  "_comment": "Stage B deterministic variant: one scheduled memory-corruption fault (phase 4); mu_t in {0,1}.",
+  "kind": "toolagent",
+  "deterministic": true,
+  "fault_phase": 4,
+  "method": "lucb",
+  "delta": 0.1,
+  "budget": 2000,
+  "seed": 0
+}

@@ -1,0 +1,9 @@
+{
+  "_comment": "A 2-3 minute smoke run (results go to results/ as well - use a copy of the repository if you want to keep the full results).",
+  "trials": 3,
+  "workers": 4,
+  "groups": [
+    "main",
+    "budget_curve"
+  ]
+}

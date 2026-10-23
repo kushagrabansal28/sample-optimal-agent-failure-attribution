@@ -1,0 +1,11 @@
+{
+  "_comment": "Bandit-arm model: K=8, best arm 0.8, runner-up 0.8-gap. Includes the Garivier-Kaufmann lower bound in the row.",
+  "kind": "bandit",
+  "K": 8,
+  "gap": 0.15,
+  "method": "lucb",
+  "delta": 0.1,
+  "budget": 150000,
+  "with_lb": true,
+  "seed": 30000
+}

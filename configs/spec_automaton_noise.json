@@ -1,0 +1,11 @@
+{
+  "_comment": "Assumption A1 violated: state-reconstruction noise 0.25 (prefix sharing is disabled automatically).",
+  "kind": "automaton",
+  "n_states": 48,
+  "eps_plan": 0.6,
+  "method": "lucb_prefix",
+  "recon_noise": 0.25,
+  "delta": 0.1,
+  "budget": 60000,
+  "seed": 42000
+}

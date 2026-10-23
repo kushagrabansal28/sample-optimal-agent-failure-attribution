@@ -1,0 +1,149 @@
+[
+ {
+  "file": "fig01_system_architecture.png",
+  "title": "End-to-end system architecture",
+  "kind": "conceptual",
+  "caption": "A failed trajectory and an intervention protocol define candidate arms; each pull replays the agent from the intervened state and returns an outcome. Confidence sequences and the stopping rule decide when to certify or abstain, the allocation rule chooses the next arm, and valid prefix reuse supplies extra observations.",
+  "source": "scripts/make_figures.py (schematic)"
+ },
+ {
+  "file": "fig02_failed_trajectory.png",
+  "title": "Example failed agent trajectory",
+  "kind": "experimental",
+  "caption": "Exact \u03bc_t (dynamic programming, no sampling) for one failed trajectory (seed 5, fault probability 0.6). Steps before the planted fault only exceed the baseline slightly: re-running re-rolls the fault. After the fault the state is corrupted and \u03bc_t falls.",
+  "source": "AgentModel.exact_mu; seed 5"
+ },
+ {
+  "file": "fig03_counterfactual_replay.png",
+  "title": "Counterfactual replay mechanism",
+  "kind": "conceptual",
+  "caption": "Illustrated with a real sampled trajectory: the original run (top) is restored up to the chosen step, one action is forced to the reference action, and the continuation (bottom) is re-simulated. One replay is one sample of the outcome distribution.",
+  "source": "AutomatonEnv.replay_detail; seed 5"
+ },
+ {
+  "file": "fig04_adaptive_selection_flowchart.png",
+  "title": "Adaptive candidate-selection flowchart",
+  "kind": "conceptual",
+  "caption": "One round of AFCR. The sampling rule is interchangeable: \u03b4-correctness depends only on the confidence sequence and the stopping rule. Budget exhaustion is an abstention, never a certified answer.",
+  "source": "src/afcr/attribution/engine.py"
+ },
+ {
+  "file": "fig05_confidence_stopping.png",
+  "title": "Confidence-bound and stopping-rule illustration",
+  "kind": "experimental",
+  "caption": "One LUCB run (seed 5, status: identified). The run stops the first time the lower bound of the best arm exceeds the largest upper bound of all other arms (running-intersection intervals, x_n = ln(2Kn(n+1)/\u03b4)).",
+  "source": "run_attribution(history=True); seed 5, algorithm seed 12"
+ },
+ {
+  "file": "fig06_dfa.png",
+  "title": "DFA: even number of a\u2019s",
+  "kind": "conceptual",
+  "caption": "A total deterministic automaton (states e = even, o = odd); bold outline = start state, green = accepting. The agent model\u2019s DFA view is the same kind of object built from the 48-state spec (most-likely successors, explicit sink).",
+  "source": "afcr.automata.dfa.DFA"
+ },
+ {
+  "file": "fig07_nfa_active_sets.png",
+  "title": "NFA active-state-set example",
+  "kind": "conceptual",
+  "caption": "The NFA of words ending in \u201cab\u201d run on \u201caab\u201d: yellow = active states. The word is accepted because the final active set contains the accepting state q2 (thick outline). Nondeterminism here is formal, not LLM sampling.",
+  "source": "afcr.automata.nfa.NFA.run"
+ },
+ {
+  "file": "fig08_enfa_closure.png",
+  "title": "\u03b5-NFA closure illustration",
+  "kind": "conceptual",
+  "caption": "Computing the \u03b5-closure of {q0} (dashed amber = \u03b5-moves): the set grows until a fixed point, here {q0, q1, q2}. The agent model\u2019s heal edges are \u03b5-moves in its \u03b5-NFA view.",
+  "source": "afcr.automata.nfa.ENFA.eps_closure_steps"
+ },
+ {
+  "file": "fig09_probabilistic_automaton.png",
+  "title": "Probabilistic automaton",
+  "kind": "conceptual",
+  "caption": "Each (state, symbol) carries a distribution over successors (edge labels). P(accept after n steps) is exact by matrix products; runs can be sampled. This is the natural formalism for a stochastic agent.",
+  "source": "afcr.automata.pa.ProbabilisticAutomaton"
+ },
+ {
+  "file": "fig10_prefix_tree.png",
+  "title": "Prefix-tree representation of replays",
+  "kind": "experimental",
+  "caption": "Union of 60 real replays started at the first candidate step (node size = visit count; x = time since the intervention). Green nodes are exactly the (time, state) pairs at which another candidate would start; a rollout through a green node that also takes that candidate\u2019s reference action is a valid sample for it (Theorem 3).",
+  "source": "AgentModel.simulate; seed 5, rng 3"
+ },
+ {
+  "file": "fig11_prefix_aware_comparison.png",
+  "title": "Prefix-aware replay comparison",
+  "kind": "experimental",
+  "caption": "Same instances, same stopping rule and \u03b4. Means include trials that stopped at the budget cap (censored), so the gaps between methods are conservative; the right panel shows how often each method certified at all.",
+  "source": "results/processed/main.json (group main)"
+ },
+ {
+  "file": "fig12_automaton_48_states.png",
+  "title": "48-state automaton overview",
+  "kind": "structural",
+  "caption": "All 48 logical states grouped into plan / observe / tool / memory / validate / terminal; edges are all positive-probability transitions of the model, fault actions in red. Drawn from build_agent_model(48), so state count and structure are those of the tested object.",
+  "source": "afcr.automata.benchmark48.build_agent_model(48)"
+ },
+ {
+  "file": "fig13_software_architecture.png",
+  "title": "Software architecture",
+  "kind": "structural",
+  "caption": "Clear boundaries between automata, statistics, replay environments, attribution logic, experiments/evaluation and the API/website; the statistical algorithm never imports a model SDK.",
+  "source": "src/afcr package layout"
+ },
+ {
+  "file": "fig14_evaluation_pipeline.png",
+  "title": "Experimental evaluation pipeline",
+  "kind": "conceptual",
+  "caption": "Trials are plain-dict specs; every number in the paper, report, website and slides is computed from the raw CSV rows by the aggregation layer.",
+  "source": "src/afcr/experiments/suite.py"
+ },
+ {
+  "file": "fig15_rollouts_vs_accuracy.png",
+  "title": "Rollouts-versus-accuracy plot",
+  "kind": "experimental",
+  "caption": "Forced-choice accuracy when only B rollouts are available (adaptive methods return their best guess if they cannot certify). The dashed 90% line is an empirical target, not the (1\u2212\u03b4) guarantee.",
+  "source": "results/processed/budget_curve.json"
+ },
+ {
+  "file": "fig16_cost_vs_quality.png",
+  "title": "Cost-versus-attribution-quality plot",
+  "kind": "experimental",
+  "caption": "Each marker is one method (mean rollouts with 95% bootstrap CI vs accuracy with Wilson CI). The certifying adaptive methods and the uniform/random baselines overlap in accuracy, so the separation is along the cost axis. Fixed-budget methods (equal budget, CAR-style) never certify; the CAR-style point scores against the planted step with resample arms (a different target) and is not comparable.",
+  "source": "results/processed/main.json"
+ },
+ {
+  "file": "fig17_ablations.png",
+  "title": "Ablation comparison",
+  "kind": "experimental",
+  "caption": "Confidence sequence (stack-KL vs stack-Hoeffding vs the KL-LUCB rate), allocation rule, prefix sharing (valid vs invalid naive), candidate set (all steps vs decision states only \u2014 a domain prior) and tolerance \u03b5. Naive sharing is shown in red: it is invalid and rarely certifies.",
+  "source": "results/processed/ablation.json"
+ },
+ {
+  "file": "fig18_error_analysis.png",
+  "title": "Error-analysis visualisation",
+  "kind": "experimental",
+  "caption": "Left: what happened in every trial. Middle: abstentions occur on instances whose best arm is (almost) exactly tied with another \u2014 there is nothing to certify, so abstaining is the correct behaviour \u2014 and cost rises as the gap shrinks. Right: sharing every rollout with all later candidates produces wrong certified answers; exact-match reuse does not.",
+  "source": "results/raw/main.csv"
+ },
+ {
+  "file": "fig19_gap_sweep_lower_bound.png",
+  "title": "Sample cost vs gap and the Garivier\u2013Kaufmann lower bound",
+  "kind": "experimental",
+  "caption": "Every measured method lies above the lower bound T*(\u03bc)\u00b7kl(\u03b4,1\u2212\u03b4) (necessarily, for \u03b4-PAC methods); the vertical distance shows that our algorithms are far from asymptotically optimal \u2014 which is why the word \u2018optimal\u2019 is not claimed.",
+  "source": "results/processed/gap_sweep.json; results/raw/gap_sweep.csv (gk_lower_bound)"
+ },
+ {
+  "file": "fig20_error_vs_delta.png",
+  "title": "Empirical error versus \u03b4",
+  "kind": "experimental",
+  "caption": "Observed errors among certified trials on very hard 2-arm instances, with Wilson 95% intervals. Zero errors in all trials is consistent with Theorem 1 but also shows the stack bound is conservative; this is a bug-detector, not a proof.",
+  "source": "results/processed/stress.json"
+ },
+ {
+  "file": "fig21_candidates_sweep.png",
+  "title": "Effect of the number of candidate steps",
+  "kind": "experimental",
+  "caption": "Cost grows with K for every method; adaptive allocation spends its budget on the few ambiguous arms while uniform spends it on all of them.",
+  "source": "results/processed/K_sweep.json"
+ }
+]

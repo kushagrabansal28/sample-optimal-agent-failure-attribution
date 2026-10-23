@@ -1,0 +1,502 @@
+[
+ {
+  "name": "[no animation frames] clicking \"Problem & related work\" shows the page without a refresh",
+  "ok": true,
+  "detail": "/related · h1 \"What is known, and where is the gap?\" · 8398 chars · invisible elements 0 · title \"Problem & related work · AFCR\" · focus #page-title"
+ },
+ {
+  "name": "[no animation frames] clicking \"Automata laboratory\" shows the page without a refresh",
+  "ok": true,
+  "detail": "/lab · h1 \"Automata laboratory\" · 2470 chars · invisible elements 0 · title \"Automata laboratory · AFCR\" · focus #page-title"
+ },
+ {
+  "name": "[no animation frames] clicking \"Trajectory explorer\" shows the page without a refresh",
+  "ok": true,
+  "detail": "/explorer · h1 \"Trajectory explorer\" · 576 chars · invisible elements 0 · title \"Trajectory explorer · AFCR\" · focus #page-title"
+ },
+ {
+  "name": "[no animation frames] clicking \"Attribution dashboard\" shows the page without a refresh",
+  "ok": true,
+  "detail": "/dashboard · h1 \"Attribution dashboard\" · 1014 chars · invisible elements 0 · title \"Attribution dashboard · AFCR\" · focus #page-title"
+ },
+ {
+  "name": "[no animation frames] clicking \"Experiment studio\" shows the page without a refresh",
+  "ok": true,
+  "detail": "/studio · h1 \"Experiment studio\" · 2094 chars · invisible elements 0 · title \"Experiment studio · AFCR\" · focus #page-title"
+ },
+ {
+  "name": "[no animation frames] clicking \"Theory & guarantees\" shows the page without a refresh",
+  "ok": true,
+  "detail": "/theory · h1 \"Theory and what is actually proved\" · 8214 chars · invisible elements 0 · title \"Theory & guarantees · AFCR\" · focus #page-title"
+ },
+ {
+  "name": "[no animation frames] clicking \"Reproducibility\" shows the page without a refresh",
+  "ok": true,
+  "detail": "/reproducibility · h1 \"Run it yourself\" · 7154 chars · invisible elements 0 · title \"Reproducibility · AFCR\" · focus #page-title"
+ },
+ {
+  "name": "[no animation frames] clicking \"Documentation\" shows the page without a refresh",
+  "ok": true,
+  "detail": "/docs · h1 \"Reference\" · 4677 chars · invisible elements 0 · title \"Documentation · AFCR\" · focus #page-title"
+ },
+ {
+  "name": "[no animation frames] clicking \"Overview\" shows the page without a refresh",
+  "ok": true,
+  "detail": "/ · h1 \"Sample-optimal culprit identification for agent fa\" · 2739 chars · invisible elements 0 · title \"Overview · AFCR\" · focus #page-title"
+ },
+ {
+  "name": "[no animation frames] lab graph is drawn at a finite, positive scale with all 48 states visible",
+  "ok": true,
+  "detail": "{\"tr\":\"translate(-20.9158878504673,85.50280373831774) scale(0.697196261682243)\",\"nodes\":48,\"vis\":48,\"top\":429}"
+ },
+ {
+  "name": "lab graph starts inside the first screen (top < 700 px at 1440x900)",
+  "ok": true,
+  "detail": "graph top at 429px"
+ },
+ {
+  "name": "[no animation frames] homepage KPIs show the exact final values (48 | 146+ | 6518 | 0)",
+  "ok": true,
+  "detail": "48 | 225 | 6518 | 0"
+ },
+ {
+  "name": "no JavaScript exceptions",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "name": "1x1 viewport: no degenerate graph transform",
+  "ok": true,
+  "detail": "translate(89.73988439306356,13.179190751445077) scale(0.5491329479768786)"
+ },
+ {
+  "name": "wheel while collapsed gives no Infinity/NaN",
+  "ok": true,
+  "detail": "translate(120.01002692235683,42.96565624926575) scale(0.7245852689215315)"
+ },
+ {
+  "name": "after growing to 1440x900 the graph fits (48/48 visible)",
+  "ok": true,
+  "detail": "{\"tr\":\"translate(-20.9158878504673,85.50280373831774) scale(0.697196261682243)\",\"vis\":48}"
+ },
+ {
+  "name": "dfa: states are numbered q0, q1, …",
+  "ok": true,
+  "detail": "q0 q1 q2 q3"
+ },
+ {
+  "name": "dfa: no overlapping edge labels, no clipped states",
+  "ok": true,
+  "detail": "overlaps 0, clipped 0"
+ },
+ {
+  "name": "dfa · case \"accepted\" (accept) behaves as stated",
+  "ok": true,
+  "detail": "accepted"
+ },
+ {
+  "name": "dfa · case \"rejected (odd b's)\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: ended in q3, which is not an accepting state"
+ },
+ {
+  "name": "dfa · case \"dead state\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: ended in q2, a dead (trap) state: no accepting state is reachable from it"
+ },
+ {
+  "name": "dfa · case \"empty word\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: ended in q0, which is not an accepting state"
+ },
+ {
+  "name": "dfa · case \"invalid symbol\" (error) behaves as stated",
+  "ok": true,
+  "detail": "symbol 'c' is not in the alphabet ['a', 'b']"
+ },
+ {
+  "name": "nfa: states are numbered q0, q1, …",
+  "ok": true,
+  "detail": "q0 q1 q2"
+ },
+ {
+  "name": "nfa: no overlapping edge labels, no clipped states",
+  "ok": true,
+  "detail": "overlaps 0, clipped 0"
+ },
+ {
+  "name": "nfa · case \"accepted\" (accept) behaves as stated",
+  "ok": true,
+  "detail": "accepted active states: q0 q2 accepted iff the active-state set contains an accepting state"
+ },
+ {
+  "name": "nfa · case \"rejected\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: the active set {q0, q1} contains no accepting state active states: q0 q1 accepted iff the active-state set contains "
+ },
+ {
+  "name": "nfa · case \"empty word\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: the active set {q0} contains no accepting state active states: q0 accepted iff the active-state set contains an acce"
+ },
+ {
+  "name": "nfa · case \"dead branch\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: the active set {q0} contains no accepting state active states: q0 accepted iff the active-state set contains an acce"
+ },
+ {
+  "name": "nfa · case \"invalid symbol\" (error) behaves as stated",
+  "ok": true,
+  "detail": "symbol 'x' is not in the alphabet ['a', 'b']"
+ },
+ {
+  "name": "enfa: states are numbered q0, q1, …",
+  "ok": true,
+  "detail": "q0 q1 q2 q3"
+ },
+ {
+  "name": "enfa: no overlapping edge labels, no clipped states",
+  "ok": true,
+  "detail": "overlaps 0, clipped 0"
+ },
+ {
+  "name": "enfa · case \"accepted\" (accept) behaves as stated",
+  "ok": true,
+  "detail": "accepted active states: q3 accepted iff the active-state set contains an accepting state"
+ },
+ {
+  "name": "enfa · case \"just b\" (accept) behaves as stated",
+  "ok": true,
+  "detail": "accepted active states: q3 accepted iff the active-state set contains an accepting state"
+ },
+ {
+  "name": "enfa · case \"rejected\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: the active set {q1, q2} contains no accepting state active states: q1 q2 accepted iff the active-state set contains "
+ },
+ {
+  "name": "enfa · case \"empty word\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: the active set {q0, q1, q2} contains no accepting state active states: q0 q1 q2 accepted iff the active-state set co"
+ },
+ {
+  "name": "enfa · case \"too many b\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: every branch died: the active-state set is empty (∅) active states: ∅ (all branches dead) accepted iff the active-st"
+ },
+ {
+  "name": "pa: states are numbered q0, q1, …",
+  "ok": true,
+  "detail": "q0 q1 q2"
+ },
+ {
+  "name": "pa: no overlapping edge labels, no clipped states",
+  "ok": true,
+  "detail": "overlaps 0, clipped 0"
+ },
+ {
+  "name": "pa · case \"go go go\" (probability) behaves as stated",
+  "ok": true,
+  "detail": "exact P(accept) = 0.8680 Monte-Carlo 0.873 [0.857, 0.886] n=2000 this sampled run ended in an accepting state One sampled run is s"
+ },
+ {
+  "name": "pa · case \"retry then go\" (probability) behaves as stated",
+  "ok": true,
+  "detail": "exact P(accept) = 0.6500 Monte-Carlo 0.649 [0.628, 0.670] n=2000 this sampled run ended in an accepting state One sampled run is s"
+ },
+ {
+  "name": "pa · case \"empty word\" (probability) behaves as stated",
+  "ok": true,
+  "detail": "exact P(accept) = 0.0000 Monte-Carlo 0.000 [0.000, 0.002] n=2000 this sampled run ended in a non-accepting state One sampled run i"
+ },
+ {
+  "name": "pa · case \"invalid symbol\" (error) behaves as stated",
+  "ok": true,
+  "detail": "symbol 'stop' is not in the alphabet ['go', 'retry']"
+ },
+ {
+  "name": "lts: states are numbered q0, q1, …",
+  "ok": true,
+  "detail": "q0 q1 q2 q3 q4"
+ },
+ {
+  "name": "lts: no overlapping edge labels, no clipped states",
+  "ok": true,
+  "detail": "overlaps 0, clipped 0"
+ },
+ {
+  "name": "lts · case \"accepted\" (accept) behaves as stated",
+  "ok": true,
+  "detail": "accepted"
+ },
+ {
+  "name": "lts · case \"failure\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: the run ended in a state that is not accepting"
+ },
+ {
+  "name": "lts · case \"blocked action\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected blocked at q3 on “plan” Why: blocked: no 'plan' action is enabled in q3"
+ },
+ {
+  "name": "lts · case \"empty word\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: the run ended in a state that is not accepting"
+ },
+ {
+  "name": "lts · case \"label never enabled\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected blocked at q0 on “fly” Why: blocked: no 'fly' action is enabled in q0"
+ },
+ {
+  "name": "mealy: states are numbered q0, q1, …",
+  "ok": true,
+  "detail": "q0 q1 q2"
+ },
+ {
+  "name": "mealy: no overlapping edge labels, no clipped states",
+  "ok": true,
+  "detail": "overlaps 0, clipped 0"
+ },
+ {
+  "name": "mealy · case \"normal run\" (output) behaves as stated",
+  "ok": true,
+  "detail": "3 outputs · no accepted/rejected: a transducer only produces output call_tool retry proceed transducer: no acceptance, see outputs"
+ },
+ {
+  "name": "mealy · case \"abort path\" (output) behaves as stated",
+  "ok": true,
+  "detail": "3 outputs · no accepted/rejected: a transducer only produces output call_tool retry abort transducer: no acceptance, see outputs"
+ },
+ {
+  "name": "mealy · case \"empty word\" (output) behaves as stated",
+  "ok": true,
+  "detail": "0 outputs · no accepted/rejected: a transducer only produces output transducer: no acceptance, see outputs"
+ },
+ {
+  "name": "mealy · case \"invalid symbol\" (error) behaves as stated",
+  "ok": true,
+  "detail": "symbol 'bogus' is not in the alphabet ['error', 'ok', 'task', 'timeout']"
+ },
+ {
+  "name": "moore: states are numbered q0, q1, …",
+  "ok": true,
+  "detail": "q0 q1 q2 q3 q4 q5 q6"
+ },
+ {
+  "name": "moore: no overlapping edge labels, no clipped states",
+  "ok": true,
+  "detail": "overlaps 0, clipped 0"
+ },
+ {
+  "name": "moore · case \"normal run\" (output) behaves as stated",
+  "ok": true,
+  "detail": "4 outputs · no accepted/rejected: a transducer only produces output start call_tool retry proceed outputs are attached to states; "
+ },
+ {
+  "name": "moore · case \"empty word\" (output) behaves as stated",
+  "ok": true,
+  "detail": "1 outputs · no accepted/rejected: a transducer only produces output start outputs are attached to states; n+1 outputs for n inputs"
+ },
+ {
+  "name": "moore · case \"invalid symbol\" (error) behaves as stated",
+  "ok": true,
+  "detail": "symbol 'bogus' is not in the alphabet ['error', 'ok', 'task', 'timeout']"
+ },
+ {
+  "name": "pda: states are numbered q0, q1, …",
+  "ok": true,
+  "detail": "q0 q1"
+ },
+ {
+  "name": "pda: no overlapping edge labels, no clipped states",
+  "ok": true,
+  "detail": "overlaps 0, clipped 0"
+ },
+ {
+  "name": "pda · case \"balanced\" (accept) behaves as stated",
+  "ok": true,
+  "detail": "accepted STACK (top ↑) empty accepted"
+ },
+ {
+  "name": "pda · case \"underflow\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: stuck before reading 'ret' (input position 3): no transition from q with stack top Z (stack: Z) STACK (top ↑) Z reje"
+ },
+ {
+  "name": "pda · case \"unclosed call\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: input consumed but the stack still holds C,Z: something was opened and never closed STACK (top ↑) Z C rejected: no a"
+ },
+ {
+  "name": "pda · case \"empty word\" (accept) behaves as stated",
+  "ok": true,
+  "detail": "accepted STACK (top ↑) empty accepted"
+ },
+ {
+  "name": "pda · case \"invalid symbol\" (error) behaves as stated",
+  "ok": true,
+  "detail": "symbol 'zzz' is not in the alphabet ['call', 'ret']"
+ },
+ {
+  "name": "pda_typed: states are numbered q0, q1, …",
+  "ok": true,
+  "detail": "q0 q1"
+ },
+ {
+  "name": "pda_typed: no overlapping edge labels, no clipped states",
+  "ok": true,
+  "detail": "overlaps 0, clipped 0"
+ },
+ {
+  "name": "pda_typed · case \"well nested\" (accept) behaves as stated",
+  "ok": true,
+  "detail": "accepted STACK (top ↑) empty accepted"
+ },
+ {
+  "name": "pda_typed · case \"type mismatch\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: stuck before reading 'end_calc' (input position 2): no transition from q with stack top S (stack: S,Z) STACK (top ↑)"
+ },
+ {
+  "name": "pda_typed · case \"crossed\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "rejected Why: stuck before reading 'end_search' (input position 3): no transition from q with stack top K (stack: K,S,Z) STACK (to"
+ },
+ {
+  "name": "pda_typed · case \"empty word\" (accept) behaves as stated",
+  "ok": true,
+  "detail": "accepted STACK (top ↑) empty accepted"
+ },
+ {
+  "name": "tm: states are numbered q0, q1, …",
+  "ok": true,
+  "detail": "q0 q1 q2 q3 q4"
+ },
+ {
+  "name": "tm: no overlapping edge labels, no clipped states",
+  "ok": true,
+  "detail": "overlaps 0, clipped 0"
+ },
+ {
+  "name": "tm · case \"1011 + 1\" (output) behaves as stated",
+  "ok": true,
+  "detail": "accept output “1100” 9 steps TAPE · state q3 · head at 1 _ 1 1 0 0 _ _ _"
+ },
+ {
+  "name": "tm · case \"all ones\" (output) behaves as stated",
+  "ok": true,
+  "detail": "accept output “1000” 9 steps TAPE · state q3 · head at -1 _ 1 0 0 0 _ _ _ _"
+ },
+ {
+  "name": "tm · case \"empty tape\" (output) behaves as stated",
+  "ok": true,
+  "detail": "accept output “1” 3 steps TAPE · state q3 · head at -1 _ 1 _ _ _ _ _ _ _"
+ },
+ {
+  "name": "tm · case \"invalid symbol\" (error) behaves as stated",
+  "ok": true,
+  "detail": "input symbol '2' not in Σ"
+ },
+ {
+  "name": "tm_pal: states are numbered q0, q1, …",
+  "ok": true,
+  "detail": "q0 q1 q2 q3 q4 q5 q6 q7 q8 q9"
+ },
+ {
+  "name": "tm_pal: no overlapping edge labels, no clipped states",
+  "ok": true,
+  "detail": "overlaps 0, clipped 0"
+ },
+ {
+  "name": "tm_pal · case \"palindrome\" (accept) behaves as stated",
+  "ok": true,
+  "detail": "accept output “” 15 steps TAPE · state q1 · head at 2 _ _ _ _ _ _ _ _"
+ },
+ {
+  "name": "tm_pal · case \"odd palindrome\" (accept) behaves as stated",
+  "ok": true,
+  "detail": "accept output “” 9 steps TAPE · state q1 · head at 2 _ _ _ _ _ _ _ _"
+ },
+ {
+  "name": "tm_pal · case \"not a palindrome\" (reject) behaves as stated",
+  "ok": true,
+  "detail": "reject output “” 4 steps Why: halted in the rejecting state (reject) TAPE · state q9 · head at 1 _ _ _ _ _ _ _ _"
+ },
+ {
+  "name": "tm_pal · case \"empty word\" (accept) behaves as stated",
+  "ok": true,
+  "detail": "accept output “” 1 steps TAPE · state q1 · head at 0 _ _ _ _ _ _ _ _"
+ },
+ {
+  "name": "tm_pal · case \"invalid symbol\" (error) behaves as stated",
+  "ok": true,
+  "detail": "input symbol 'c' not in Σ"
+ },
+ {
+  "name": "tm_loop: states are numbered q0, q1, …",
+  "ok": true,
+  "detail": "q0 q1 q2"
+ },
+ {
+  "name": "tm_loop: no overlapping edge labels, no clipped states",
+  "ok": true,
+  "detail": "overlaps 0, clipped 0"
+ },
+ {
+  "name": "tm_loop · case \"loops\" (unknown) behaves as stated",
+  "ok": true,
+  "detail": "unknown (step_limit) 40 steps Why: simulator bound reached (step_limit): the machine did not halt — the answer is unknown, not 're"
+ },
+ {
+  "name": "tm_loop · case \"empty tape\" (unknown) behaves as stated",
+  "ok": true,
+  "detail": "unknown (step_limit) 40 steps Why: simulator bound reached (step_limit): the machine did not halt — the answer is unknown, not 're"
+ },
+ {
+  "name": "48-state automaton: 48 nodes labelled q0 …",
+  "ok": true,
+  "detail": "48 nodes · State q0 Start, initial · 48 distinct logical states"
+ },
+ {
+  "name": "48-state DFA view draws the sink (49 nodes) and still counts 48 logical states",
+  "ok": true,
+  "detail": "{\"nodes\":49,\"sink\":true,\"badge\":\"48 distinct logical states · sink not counted\"}"
+ },
+ {
+  "name": "graph/table switch shows a table",
+  "ok": true,
+  "detail": "96 rows"
+ },
+ {
+  "name": "NFA → DFA (subset construction) view",
+  "ok": true,
+  "detail": "3 DFA states"
+ },
+ {
+  "name": "lab: no JavaScript exceptions",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "name": "lab: no console errors (the only network errors are the expected 422s of the invalid-symbol cases)",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "homepage: no console errors",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "path traversal blocked; unknown /api path is 404 JSON; replay with seed=-1 is 422",
+  "ok": true,
+  "detail": "[true,true,true,true,true]"
+ },
+ {
+  "name": "no horizontal overflow on any page at 1440, 1024, 768 and 390 px",
+  "ok": true,
+  "detail": ""
+ }
+]
